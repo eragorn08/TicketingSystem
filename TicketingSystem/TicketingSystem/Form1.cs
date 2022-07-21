@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace TicketingSystem
 {
-    public partial class Form1 : Form
+    public partial class frmRegister : Form
     {
-        public Form1()
+        public frmRegister()
         {
             InitializeComponent();
+        }
+
+        private void frmRegister_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
