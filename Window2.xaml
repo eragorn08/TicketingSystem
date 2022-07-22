@@ -8,7 +8,7 @@
         Title="Staff System Service" Height="648" Width="857">
     <Grid Margin="0,0,10,0">
         <TabControl>
-
+            
 
             <TabItem x:Name="tabGTicket" Header="Generate Ticket">
                 <Grid Background="#FFE5E5E5" 
