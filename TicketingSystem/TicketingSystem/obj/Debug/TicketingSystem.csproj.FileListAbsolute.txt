@@ -1,0 +1,2 @@
+C:\Users\pc\Desktop\Ticketing System\TicketingSystem\TicketingSystem\TicketingSystem\obj\Debug\TicketingSystem.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\Ticketing System\TicketingSystem\TicketingSystem\TicketingSystem\obj\Debug\TicketingSystem.csproj.SuggestedBindingRedirects.cache
