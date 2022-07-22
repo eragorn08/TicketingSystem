@@ -5,225 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="Staff System Service" Height="648" Width="857">
+        Title="Staff System Service" Height="450" Width="857">
     <Grid Margin="0,0,10,0">
-        <TabControl>
+        <Rectangle 
+            Height="384" 
+            Stroke="Black" 
+            VerticalAlignment="Center" Margin="219,0,10,0"/>
+        <Label x:Name="lblWelcome" 
+               Content="Welcome, Staff!" 
+               HorizontalAlignment="Left" 
+               Margin="242,26,0,0" 
+               VerticalAlignment="Top" Width="218" FontFamily="Forte" FontSize="32" Foreground="#FFB10F0F"/>
+        <Label x:Name="lblWelcome_Copy" 
+            Content="Please Pick your Task Today" 
+            HorizontalAlignment="Left" 
+            Margin="242,70,0,0" 
+            VerticalAlignment="Top" Width="196" FontFamily="Arial"/>
 
+        <!--Button to Go to Generate Ticket-->
+        <Button x:Name="btnGenTicket" 
+                Content="Generate Ticket"
+                HorizontalAlignment="Left" 
+                Margin="20,108,0,0" 
+                VerticalAlignment="Top" 
+                Height="48" 
+                Width="188" 
+                Click="btnGenTicket_Click"/>
 
-            <TabItem x:Name="tabGTicket" Header="Generate Ticket">
-                <Grid Background="#FFE5E5E5" 
-                      Margin="0,11,0,99">
-                    <Label Content="Generate Ticket" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24"/>
-                    <Label Content="Start Creating A Ticket for Customers" HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Customer Name: " 
-                           HorizontalAlignment="Left" 
-                           Margin="80,69,0,0" 
-                           VerticalAlignment="Top" 
-                           FontSize="20"
-                           FontStyle="Italic"/>
-                    <Label Content="Customer Email:" 
-                        HorizontalAlignment="Left" 
-                        Margin="80,112,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <Label Content="Customer Problem:" 
-                        HorizontalAlignment="Left" 
-                        Margin="80,197,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <!--DATA-->
-                    <TextBox x:Name="txtName" 
-                             HorizontalAlignment="Left" 
-                             Margin="286,67,0,0" 
-                             TextWrapping="Wrap" 
-                             Text="" 
-                             HorizontalContentAlignment="Center"
-                             VerticalContentAlignment="Center"
-                             VerticalAlignment="Top" 
-                             Width="394" Height="37" FontSize="18"/>
-                    <TextBox x:Name="txtEmail" 
-                        HorizontalAlignment="Left" 
-                        Margin="286,112,0,0" 
-                        TextWrapping="Wrap" 
-                        Text="" 
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        VerticalAlignment="Top" 
-                        Width="394" Height="37" FontSize="18"/>
-                    <TextBox x:Name="txtProblem" 
-                        HorizontalAlignment="Left" 
-                        Margin="80,239,0,0" 
-                        TextWrapping="Wrap" 
-                        Text="" 
-                        VerticalAlignment="Top" 
-                        Width="727" Height="141" FontSize="18"/>
-                    <Button x:Name="btnCancelGenerate" Content="Cancel" 
-                            HorizontalAlignment="Left" 
-                            Margin="696,391,0,0" 
-                            VerticalAlignment="Top" 
-                            Height="29" Width="111" FontWeight="Bold" Click="btnCancelGenerate_Click"/>
-                    <Button x:Name="btnConfirmGenerate" Content="Confirm" 
-                        HorizontalAlignment="Left" 
-                        Margin="569,391,0,0" 
-                        VerticalAlignment="Top" 
-                        Height="29" Width="111" FontWeight="Bold" Click="btnConfirmGenerate_Click"/>
-                    <Label Content="Problem Title:" 
-                        HorizontalAlignment="Left" 
-                        Margin="80,160,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <TextBox x:Name="txtTitle" 
-                        HorizontalAlignment="Left" 
-                        Margin="286,156,0,0" 
-                        TextWrapping="Wrap" 
-                        Text="" 
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"
-                        VerticalAlignment="Top" 
-                        Width="394" Height="37" FontSize="18"/>
+        <!--Button to View Customer Ticket-->
+        <Button x:Name="btnViewTicket" 
+            Content="View Customer Ticket" 
+            HorizontalAlignment="Left" 
+            Margin="20,169,0,0" 
+            VerticalAlignment="Top" 
+            Height="48" 
+            Width="188" 
+            Click="btnViewTicket_Click"/>
 
-                </Grid>
-            </TabItem>
+        <!--Button to Assign Ticket-->
+        <Button x:Name="btnAssignTicket" 
+            Content="Assign Ticket" 
+            HorizontalAlignment="Left" 
+            Margin="20,236,0,0" 
+            VerticalAlignment="Top" 
+            Height="48" 
+            Width="188" 
+            Click="btnAssignTicket_Click"/>
+        <Image 
+            x:Name="logoImage" 
+            Source="Resources/logo.png" 
+            Margin="42,14,661,348"/>
 
-            <TabItem x:Name="tabATicket" Header="Assign Ticket">
-                <Grid Background="#FFE5E5E5" 
-                      Margin="0,11,0,99">
-                    <Label Content="Assign A Ticket" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24"/>
-                    <Label Content="Assign a Ticket to you Users" HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Pick a Ticket ID:" 
-                        HorizontalAlignment="Left" 
-                        Margin="33,78,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <ComboBox x:Name="cmbTicketID" 
-                              HorizontalAlignment="Left" 
-                              Margin="203,78,0,0" 
-                              VerticalAlignment="Top" 
-                              Width="116" 
-                              Height="35"/>
-
-
-
-                    <Label x:Name="lblTicketTitle" Content="Ticket Title" 
-                        HorizontalAlignment="Left" 
-                        Margin="609,14,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <TextBox x:Name="txtTicketProblem" HorizontalAlignment="Left" Margin="506,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360"/>
-
-                    <Label Content="Assign to User:" 
-                        HorizontalAlignment="Left" 
-                        Margin="33,141,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <ComboBox x:Name="cmbAssign" 
-                              HorizontalAlignment="Left" 
-                              Margin="203,143,0,0" 
-                              VerticalAlignment="Top" 
-                              Width="217" 
-                              Height="35"/>
-
-                    <Button x:Name="btnAssign" Content="Assign" 
-                            HorizontalAlignment="Left" 
-                            Margin="109,247,0,0" 
-                            VerticalAlignment="Top" 
-                            Height="50"
-                            Width="108" FontSize="20" FontWeight="Bold"/>
-                    <Button x:Name="btnCancelAssign" Content="Cancel" 
-                        HorizontalAlignment="Left" 
-                        Margin="240,247,0,0" 
-                        VerticalAlignment="Top" 
-                        Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold"/>
-
-
-                </Grid>
-            </TabItem>
-
-            <TabItem x:Name="tabSolveTicket" Header="Solve Ticket">
-                <Grid Background="#FFE5E5E5" 
-                      Margin="0,11,0,99">
-                    <Label Content="Solve a Ticket" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24"/>
-                    <Label Content="Solve the Ticket assigned to you." HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Pick a Ticket ID:" 
-                        HorizontalAlignment="Left" 
-                        Margin="524,28,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <ComboBox x:Name="cmbTicketIDSolve" 
-                        HorizontalAlignment="Left" 
-                        Margin="694,28,0,0" 
-                        VerticalAlignment="Top" 
-                        Width="116" 
-                        Height="35"/>
-                    <Label x:Name="lblTicketTitleSolve" Content="Ticket Title" 
-                        HorizontalAlignment="Left" 
-                        Margin="36,69,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <TextBox x:Name="txtTicketProblemSolve" 
-                             HorizontalAlignment="Left"
-                             Margin="36,111,0,0" 
-                             TextWrapping="Wrap" 
-                             Text="" 
-                             VerticalAlignment="Top" 
-                             Width="352" 
-                             Height="317"/>
-
-                    <Label Content="Solution" 
-                        HorizontalAlignment="Left" 
-                        Margin="564,69,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <TextBox x:Name="txtTicketSolution" 
-                        HorizontalAlignment="Left"
-                        Margin="421,111,0,0" 
-                        TextWrapping="Wrap" 
-                        Text="" 
-                        VerticalAlignment="Top" 
-                        Width="389" 
-                        Height="180"/>
-
-                    <Label Content="Change Status:" 
-                        HorizontalAlignment="Left" 
-                        Margin="421,324,0,0" 
-                        VerticalAlignment="Top" 
-                        FontSize="20"
-                        FontStyle="Italic"/>
-                    <ComboBox x:Name="cmbStatusChange" 
-                        HorizontalAlignment="Left" 
-                        Margin="578,326,0,0" 
-                        VerticalAlignment="Top" 
-                        Width="232" 
-                        Height="35"/>
-                    <Button x:Name="btnConfirmSolve" Content="Confirm" 
-                        HorizontalAlignment="Left" 
-                        Margin="578,371,0,0" 
-                        VerticalAlignment="Top" 
-                        Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold"/>
-                    <Button x:Name="btnCancelSolve" Content="Cancel" 
-                        HorizontalAlignment="Left" 
-                        Margin="702,371,0,0" 
-                        VerticalAlignment="Top" 
-                        Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold"/>
-
-
-
-                </Grid>
-            </TabItem>
-            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        </TabControl>
-
+        <!--Button to Logout-->
+        <Button x:Name="btnLogout" 
+            Content="Logout" 
+            HorizontalAlignment="Left" 
+            Margin="20,336,0,0" 
+            VerticalAlignment="Top" 
+            Height="48" 
+            Width="188" 
+            Click="btnLogout_Click"/>
     </Grid>
 </Window>
