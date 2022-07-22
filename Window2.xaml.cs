@@ -23,10 +23,25 @@ namespace Ticketing_System
         {
             InitializeComponent();
         }
+        
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //Generate Ticket
+        private void btnConfirmGenerate_Click(object sender, RoutedEventArgs e)
         {
+            string name = txtName.Text;
+            string email = txtEmail.Text;
+            string title = txtTitle.Text;
+            string cus_problem = txtProblem.Text;
 
+            
+        }
+
+        private void btnCancelGenerate_Click(object sender, RoutedEventArgs e)
+        {
+            txtName.Clear();
+            txtEmail.Clear();
+            txtTitle.Clear();
+            txtProblem.Clear();
         }
     }
 }

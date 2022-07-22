@@ -4,17 +4,26 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\
+=======
+C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\
+>>>>>>> 1f0a6411c51def35b820de746364b19c310e4e0e
 Ticketing_System
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\PC home\Desktop\TicketingSystem\App.xaml
 22080154670
+=======
+C:\Users\Alexander\Desktop\TicketingSystem\App.xaml
+3-354245360
+>>>>>>> 1f0a6411c51def35b820de746364b19c310e4e0e
 
 7883272814
 13-1310406943
 MainWindow.xaml;Window3.xaml;
 
-True
+False
 
