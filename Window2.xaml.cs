@@ -23,5 +23,25 @@ namespace Ticketing_System
         {
             InitializeComponent();
         }
+
+        private void btnGenTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnViewTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAssignTicket_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
