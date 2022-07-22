@@ -5,19 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="589" Width="800">
-    <Grid Margin="0,0,0,-6">
-        <Rectangle HorizontalAlignment="Left" Height="286" Margin="130,176,0,0" Stroke="Black" VerticalAlignment="Top" Width="556"/>
-        <TextBox x:Name="uname" HorizontalAlignment="Left" Margin="324,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="24" TextChanged="TextBox_TextChanged"/>
-        <Label Content="Username :" HorizontalAlignment="Left" Margin="182,198,0,0" VerticalAlignment="Top" Height="42" Width="147" FontSize="24" FontWeight="Bold"/>
-        <Label Content="Password :" HorizontalAlignment="Left" Margin="182,275,0,0" VerticalAlignment="Top" Height="43" Width="152" FontSize="24" FontWeight="Bold"/>
-        <Image HorizontalAlignment="Left" Height="161" Margin="318,10,0,0" VerticalAlignment="Top" Width="169" Source="/logo.png"/>
-        <Button x:Name="loginbutton" Content="Login" HorizontalAlignment="Left" Margin="220,407,0,0" VerticalAlignment="Top" Click="Login" FontSize="24" Height="40" Width="139"/>
-        <Button x:Name="clearbutton" Content="Clear" HorizontalAlignment="Left" Margin="457,407,0,0" VerticalAlignment="Top" Click="Clear" FontSize="24" Height="41" Width="139"/>
-        <Label Content="Dont have an Account?" HorizontalAlignment="Center" Margin="0,487,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <Label Content="Create an Account." HorizontalAlignment="Center" Margin="0,521,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="nopass" Content="" HorizontalAlignment="Left" Margin="324,323,0,0" VerticalAlignment="Top" FontSize="14" Width="266"/>
-        <Label x:Name="nouname" Content="" HorizontalAlignment="Left" Margin="325,241,0,0" VerticalAlignment="Top" FontSize="14" Width="265"/>
-        <PasswordBox x:Name="passw" HorizontalAlignment="Left" Margin="325,288,0,0" VerticalAlignment="Top" Width="265" Height="30" FontSize="14"/>
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Margin="299,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="299,198,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Username :" HorizontalAlignment="Left" Margin="142,147,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password :" HorizontalAlignment="Left" Margin="160,207,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

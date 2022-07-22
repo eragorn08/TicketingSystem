@@ -18,23 +18,3 @@ C:\Users\pc\Desktop\Ticketing System\TicketingSystem\obj\Debug\Window1.g.cs
 C:\Users\pc\Desktop\Ticketing System\TicketingSystem\obj\Debug\Window1.baml
 C:\Users\pc\Desktop\Ticketing System\TicketingSystem\obj\Debug\Window2.g.cs
 C:\Users\pc\Desktop\Ticketing System\TicketingSystem\obj\Debug\Window2.baml
-C:\Users\Alexander\Desktop\TicketingSystem\bin\Debug\Ticketing System.exe.config
-C:\Users\Alexander\Desktop\TicketingSystem\bin\Debug\Ticketing System.exe
-C:\Users\Alexander\Desktop\TicketingSystem\bin\Debug\Ticketing System.pdb
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.AssemblyReference.cache
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.SuggestedBindingRedirects.cache
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\MainWindow.g.cs
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Window1.g.cs
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Window2.g.cs
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\App.g.cs
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System_MarkupCompile.cache
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System_MarkupCompile.lref
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\MainWindow.baml
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Window1.baml
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Window2.baml
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.g.resources
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing_System.Properties.Resources.resources
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.GenerateResource.cache
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.CoreCompileInputs.cache
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.exe
-C:\Users\Alexander\Desktop\TicketingSystem\obj\Debug\Ticketing System.pdb
