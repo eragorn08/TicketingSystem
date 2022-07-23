@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="Window3" Height="450" Width="800">
-    <Grid>
-        
+        Title="User
+        " Height="450" Width="800">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="346*"/>
+            <ColumnDefinition Width="27*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblTitle" Grid.Column="1" Content="LIST OF ASSIGNED CUSTOMER SUPPORT TICKETS" HorizontalAlignment="Left" Margin="134,10,0,0" VerticalAlignment="Top" Width="478" FontWeight="Bold" FontSize="20"/>
+        <Rectangle HorizontalAlignment="Center" Height="372" Margin="0,52,0,0" Stroke="Black" VerticalAlignment="Top" Width="780" Grid.Column="1"/>
+        <Label x:Name="lblProblem" Grid.Column="1" Content="Problem" HorizontalAlignment="Left" Margin="124,92,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox x:Name="cbTicketID" HorizontalAlignment="Left" Margin="40,65,0,0" VerticalAlignment="Top" Width="238" Grid.Column="1"/>
+        <ComboBox x:Name="cbStatus" HorizontalAlignment="Center" Margin="0,360,0,0" VerticalAlignment="Top" Width="238" Grid.Column="1" SelectionChanged="cbStatus_SelectionChanged">
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="238"/>
+            <ComboBoxItem Content="Solved"></ComboBoxItem>
+            <ComboBoxItem Content="Not Solved"></ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="lblSolution" Grid.Column="1" Content="Solution" HorizontalAlignment="Left" Margin="498,92,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="lblStatus" Grid.Column="1" Content="Status" HorizontalAlignment="Left" Margin="324,329,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="bConfirm" Grid.Column="1" Content="Confirm" HorizontalAlignment="Center" Margin="0,395,0,0" VerticalAlignment="Top" Click="Button_Click" Width="92"/>
+        <TextBox x:Name="tbProblem" Grid.Column="1" HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="319" Height="196"/>
+        <TextBox x:Name="tbSolution" Grid.Column="1" HorizontalAlignment="Left" Margin="363,128,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="319" Height="196"/>
+
     </Grid>
 </Window>

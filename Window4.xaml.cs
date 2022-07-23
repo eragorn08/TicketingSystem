@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace Ticketing_System
 {
     /// <summary>
-    /// Interaction logic for Window3.xaml
+    /// Interaction logic for Window4.xaml
     /// </summary>
-    public partial class Window3 : Window
+    public partial class Window4 : Window
     {
-        public Window3()
+        public Window4()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -58,3 +58,75 @@ C:\Users\Alexander\Desktop\TicketingSystem\TicketingSystem\obj\Debug\Ticketing S
 C:\Users\Alexander\Desktop\TicketingSystem\TicketingSystem\obj\Debug\Ticketing System.csproj.CoreCompileInputs.cache
 C:\Users\Alexander\Desktop\TicketingSystem\TicketingSystem\obj\Debug\Ticketing System.exe
 C:\Users\Alexander\Desktop\TicketingSystem\TicketingSystem\obj\Debug\Ticketing System.pdb
+C:\Users\PC home\Desktop\TicketingSystem\bin\Debug\Ticketing System.exe.config
+C:\Users\PC home\Desktop\TicketingSystem\bin\Debug\Ticketing System.exe
+C:\Users\PC home\Desktop\TicketingSystem\bin\Debug\Ticketing System.pdb
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.AssemblyReference.cache
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.SuggestedBindingRedirects.cache
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\MainWindow.g.cs
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window1.g.cs
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window2.g.cs
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window3.g.cs
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\App.g.cs
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System_MarkupCompile.cache
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System_MarkupCompile.lref
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\MainWindow.baml
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window1.baml
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window2.baml
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window3.baml
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.g.resources
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing_System.Properties.Resources.resources
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.GenerateResource.cache
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.csproj.CoreCompileInputs.cache
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.exe
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Ticketing System.pdb
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window4.g.cs
+C:\Users\PC home\Desktop\TicketingSystem\obj\Debug\Window4.baml
+C:\Users\pc\Desktop\TicketingSystem7PM\bin\Debug\Ticketing System.exe.config
+C:\Users\pc\Desktop\TicketingSystem7PM\bin\Debug\Ticketing System.exe
+C:\Users\pc\Desktop\TicketingSystem7PM\bin\Debug\Ticketing System.pdb
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.csproj.SuggestedBindingRedirects.cache
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\MainWindow.g.cs
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window1.g.cs
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window2.g.cs
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window3.g.cs
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window4.g.cs
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\App.g.cs
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System_MarkupCompile.cache
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System_MarkupCompile.lref
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\MainWindow.baml
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window1.baml
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window2.baml
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window3.baml
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Window4.baml
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.g.resources
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing_System.Properties.Resources.resources
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.exe
+C:\Users\pc\Desktop\TicketingSystem7PM\obj\Debug\Ticketing System.pdb
+C:\Users\pc\Desktop\C# Project\TicketingSystem\bin\Debug\Ticketing System.exe.config
+C:\Users\pc\Desktop\C# Project\TicketingSystem\bin\Debug\Ticketing System.exe
+C:\Users\pc\Desktop\C# Project\TicketingSystem\bin\Debug\Ticketing System.pdb
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.csproj.SuggestedBindingRedirects.cache
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\MainWindow.g.cs
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window1.g.cs
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window2.g.cs
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window3.g.cs
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window4.g.cs
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\App.g.cs
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System_MarkupCompile.cache
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System_MarkupCompile.lref
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\MainWindow.baml
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window1.baml
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window2.baml
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window3.baml
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Window4.baml
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.g.resources
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing_System.Properties.Resources.resources
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.exe
+C:\Users\pc\Desktop\C# Project\TicketingSystem\obj\Debug\Ticketing System.pdb

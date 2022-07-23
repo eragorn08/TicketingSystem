@@ -104,16 +104,18 @@
                               Margin="203,78,0,0" 
                               VerticalAlignment="Top" 
                               Width="116" 
-                              Height="35"/>
+                              Height="35" 
+                              SelectionChanged="cmbTicketID_SelectionChanged"/>
 
 
 
                     <Label x:Name="lblTicketTitle" Content="Ticket Title" 
                         HorizontalAlignment="Left" 
-                        Margin="609,14,0,0" 
+                        Margin="506,14,0,0" 
                         VerticalAlignment="Top" 
+                        HorizontalContentAlignment="Center"
                         FontSize="20"
-                        FontStyle="Italic"/>
+                        FontStyle="Italic" Width="308"/>
                     <TextBox x:Name="txtTicketProblem" HorizontalAlignment="Left" Margin="506,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360"/>
 
                     <Label Content="Assign to User:" 
@@ -134,13 +136,19 @@
                             Margin="109,247,0,0" 
                             VerticalAlignment="Top" 
                             Height="50"
-                            Width="108" FontSize="20" FontWeight="Bold"/>
+                            Width="108" FontSize="20" FontWeight="Bold" Click="btnAssign_Click"/>
                     <Button x:Name="btnCancelAssign" Content="Cancel" 
                         HorizontalAlignment="Left" 
                         Margin="240,247,0,0" 
                         VerticalAlignment="Top" 
                         Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold"/>
+                        Width="108" FontSize="20" FontWeight="Bold" Click="btnCancelAssign_Click"/>
+                    <Button x:Name="btShowTicketAssign" Content="Show" 
+                        HorizontalAlignment="Left" 
+                        Margin="338,71,0,0" 
+                        VerticalAlignment="Top" 
+                        Height="50"
+                        Width="108" FontSize="20" FontWeight="Bold" Click="btShowTicketAssign_Click"/>
 
 
                 </Grid>
@@ -153,13 +161,13 @@
                     <Label Content="Solve the Ticket assigned to you." HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top"/>
                     <Label Content="Pick a Ticket ID:" 
                         HorizontalAlignment="Left" 
-                        Margin="524,28,0,0" 
+                        Margin="422,28,0,0" 
                         VerticalAlignment="Top" 
                         FontSize="20"
                         FontStyle="Italic"/>
                     <ComboBox x:Name="cmbTicketIDSolve" 
                         HorizontalAlignment="Left" 
-                        Margin="694,28,0,0" 
+                        Margin="578,28,0,0" 
                         VerticalAlignment="Top" 
                         Width="116" 
                         Height="35"/>
@@ -210,13 +218,19 @@
                         Margin="578,371,0,0" 
                         VerticalAlignment="Top" 
                         Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold"/>
+                        Width="108" FontSize="20" FontWeight="Bold" Click="btnConfirmSolve_Click"/>
                     <Button x:Name="btnCancelSolve" Content="Cancel" 
                         HorizontalAlignment="Left" 
                         Margin="702,371,0,0" 
                         VerticalAlignment="Top" 
                         Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold"/>
+                        Width="108" FontSize="20" FontWeight="Bold" Click="btnCancelSolve_Click"/>
+                    <Button x:Name="btnShowSolve" Content="Show" 
+                        HorizontalAlignment="Left" 
+                        Margin="713,27,0,0" 
+                        VerticalAlignment="Top" 
+                        Height="37"
+                        Width="97" FontSize="20" FontWeight="Bold" Click="btnShowSolve_Click"/>
 
 
 
@@ -224,10 +238,15 @@
             </TabItem>
             <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
         </TabControl>
-        <Button Content="Button" 
+        <Button x:Name="btnLogout" 
+                Content="Logout" 
                 HorizontalAlignment="Left" 
-                Margin="723,554,0,0" 
-                VerticalAlignment="Top" Height="47" Width="87" Click="Button_Click"/>
+                Margin="697,538,0,0" 
+                VerticalAlignment="Top" 
+                Height="50" Width="109" 
+                Click="btnLogout_Click" 
+                FontWeight="Bold" 
+                FontSize="20"/>
 
     </Grid>
 </Window>
