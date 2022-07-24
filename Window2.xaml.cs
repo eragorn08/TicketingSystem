@@ -25,7 +25,7 @@ namespace Ticketing_System
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "Eragorn110800";
+        string password = "root";
 
         
 
