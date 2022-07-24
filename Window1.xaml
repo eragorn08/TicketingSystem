@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
-    <Grid>
-        
+        Title="Window1" Height="493" Width="800">
+    <Grid Margin="0,0,0,-6">
+        <Image Source="/logo.png" Margin="293,10,293,309" RenderTransformOrigin="0.515,0.203"/>
+        <Rectangle HorizontalAlignment="Center" Height="249" Margin="0,179,0,0" Stroke="Black" VerticalAlignment="Top" Width="708"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="92,223,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="91,270,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="91,321,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="91,372,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Register" HorizontalAlignment="Center" Margin="0,179,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <TextBox x:Name="rName" HorizontalAlignment="Left" Margin="196,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" FontSize="18" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="rUName" HorizontalAlignment="Left" Margin="196,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" FontSize="18" TextChanged="rUName_TextChanged"/>
+        <TextBox x:Name="rPass" HorizontalAlignment="Left" Margin="196,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" FontSize="18" TextChanged="rPass_TextChanged"/>
+        <TextBox x:Name="rCPass" HorizontalAlignment="Left" Margin="264,376,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" FontSize="18" TextChanged="rCPass_TextChanged"/>
+        <Button x:Name="_return" Content="Back" HorizontalAlignment="Left" Margin="518,229,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.848,-0.187" Width="169" Click="_return_Click"/>
+        <Button x:Name="clear" Content="Clear" HorizontalAlignment="Left" Margin="518,279,0,0" VerticalAlignment="Top" FontSize="24" Width="169" Click="clear_Click"/>
+        <Button x:Name="reg" Content="Register" HorizontalAlignment="Left" Margin="518,328,0,0" VerticalAlignment="Top" FontSize="24" Width="169" Click="reg_Click"/>
+        <Label x:Name="nname" Content="" HorizontalAlignment="Left" Margin="196,253,0,0" VerticalAlignment="Top" Width="204"/>
+        <Label x:Name="nuname" Content="" HorizontalAlignment="Left" Margin="196,298,0,0" VerticalAlignment="Top" Width="204"/>
+        <Label x:Name="npass" Content="" HorizontalAlignment="Left" Margin="196,350,0,0" VerticalAlignment="Top" Width="204"/>
+        <Label x:Name="ncpass" Content="" HorizontalAlignment="Left" Margin="264,402,0,0" VerticalAlignment="Top" Width="204"/>
+
     </Grid>
 </Window>
