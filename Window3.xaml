@@ -123,6 +123,7 @@
             VerticalAlignment="Top" 
             Click="bConfirm_Click" 
             Width="92"/>
+        <Button x:Name="btnLogout" Grid.Column="1" Content="Logout" HorizontalAlignment="Left" Margin="584,350,0,0" VerticalAlignment="Top" Height="44" Width="86" FontSize="15" FontWeight="Bold" Click="btnLogout_Click"/>
 
     </Grid>
 </Window>

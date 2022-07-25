@@ -24,7 +24,7 @@ namespace Ticketing_System
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "Mac&see19";
+        string password = "root";
 
         public Window4()
         {

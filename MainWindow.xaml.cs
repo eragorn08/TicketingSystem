@@ -20,14 +20,20 @@ namespace Ticketing_System
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    static class Uname 
+    {
+        public static string name;
+    }
     public partial class MainWindow : Window
     {
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "Mac&see19";
+        string password = "root";
 
-        string name, pass;
+        string pass;
+        string name = Uname.name;
  
         public MainWindow()
         {
@@ -58,6 +64,10 @@ namespace Ticketing_System
             int i = 0;
             int log_perm = 0;
             name = uname.Text;
+
+            //Dinagdag ko to alex
+            Uname.name = uname.Text;
+
             pass = passw.Password;
             MySqlDataReader perm;
 

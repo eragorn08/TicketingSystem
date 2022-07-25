@@ -25,7 +25,7 @@ namespace Ticketing_System
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "Mac&see19";
+        string password = "root";
 
         
 
@@ -57,13 +57,13 @@ namespace Ticketing_System
 
             //ASSIGN TO STAFF MEMBERS
             MySqlConnection conn2 = new MySqlConnection(constring);
-            MySqlCommand stf = new MySqlCommand("Select ass_user from tb_mainstaff", conn2);
+            MySqlCommand stf = new MySqlCommand("Select Username from empuser", conn2);
             conn2.Open();
             MySqlDataReader read_assign = stf.ExecuteReader();
             //Assign to Staff Members
             while(read_assign.Read())
             {
-                cmbAssign.Items.Add(read_assign.GetString("ass_user"));
+                cmbAssign.Items.Add(read_assign.GetString("Username"));
             }
            
             //ASSIGN TO TICKET ID AGAIN
@@ -181,6 +181,11 @@ namespace Ticketing_System
 
         }
 
+        private void cmbTicketIDSolve_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Assign Ticket
         private void btnAssign_Click(object sender, RoutedEventArgs e)
@@ -238,6 +243,7 @@ namespace Ticketing_System
                 emaildb = read_show.GetString("cust_email");
                 namedb = read_show.GetString("cust_name");
                 cus_problemdb = read_show.GetString("problem");
+                txtTicketSolution.Text = read_show.GetString("solution");
             }
 
             //Full Problem Stuff

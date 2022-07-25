@@ -21,10 +21,11 @@ namespace Ticketing_System
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "Mac&see19";
+        string password = "root";
 
         string titledb, cus_problemdb;
         private object read_show;
+        string namepass = Uname.name;
 
         public Window3()
         {
@@ -36,7 +37,8 @@ namespace Ticketing_System
         {
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff", conn);
+            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@namepass", conn);
+            cmd.Parameters.Add("@namepass", MySqlDbType.String).Value = namepass;
             conn.Open();
             MySqlDataReader read_id = cmd.ExecuteReader();
 
@@ -61,6 +63,8 @@ namespace Ticketing_System
             {
                 titledb = read_id.GetString("prob_title");
                 cus_problemdb = read_id.GetString("problem");
+                tbSolution.Text = read_id.GetString("solution");
+
             }
 
             tbProblemTitle.Text = titledb;
@@ -76,11 +80,12 @@ namespace Ticketing_System
 
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@sSolution,solu_by='Paulo',stat=@sStatus,datetime=@sDateTime Where tb_mainstaff.ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@sSolution,solu_by=@namepass,stat=@sStatus,datetime=@sDateTime Where tb_mainstaff.ticket_id=@selection", conn);
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             cmd.Parameters.Add("@sSolution", MySqlDbType.String).Value = sSolution;
             cmd.Parameters.Add("@sStatus", MySqlDbType.String).Value = sStatus;
             cmd.Parameters.Add("@sDateTime", MySqlDbType.String).Value = sDateTime;
+            cmd.Parameters.Add("@namepass", MySqlDbType.String).Value = namepass;
             conn.Open();
             MySqlDataReader read_id = cmd.ExecuteReader();
 
@@ -93,10 +98,6 @@ namespace Ticketing_System
             cbStatus.Text = "";
         }
 
-        private void cbTicketID_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
 
         private void tbSolution_TextChanged(object sender, TextChangedEventArgs e)
@@ -109,6 +110,17 @@ namespace Ticketing_System
 
         }
 
+        private void cbTicketID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mn = new MainWindow();
+            mn.Show();
+            this.Hide();
+        }
 
         private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

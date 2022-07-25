@@ -177,7 +177,7 @@
                         Margin="578,28,0,0" 
                         VerticalAlignment="Top" 
                         Width="116" 
-                        Height="35"/>
+                        Height="35" SelectionChanged="cmbTicketIDSolve_SelectionChanged"/>
                     <Label x:Name="lblTicketTitleSolve" Content="Ticket Title" 
                         HorizontalAlignment="Left" 
                         Margin="36,69,0,0" 
