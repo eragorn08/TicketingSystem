@@ -7,17 +7,41 @@
         mc:Ignorable="d"
         Title="Admin" Height="450" Width="800">
     <Grid>
-        <TabControl>
-            <TabItem Header="SLA">
+        <TabControl SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="SLA Compliance">
+                <Grid Background="#FFE5E5E5">
+
+                    <Button x:Name="bSLA" Content="Load Table" HorizontalAlignment="Left" Margin="52,34,0,0" VerticalAlignment="Top" Click="bSLA_Click"/>
+                    <DataGrid 
+                        x:Name="dgSLA" 
+                        d:ItemsSource="{d:SampleData ItemCount=8}" 
+                        Margin="171,0,0,0"
+                        AutoGenerateColumns="False"
+                        ItemsSource="{Binding Path=loaddatabinding}"
+                        CanUserResizeRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=cust_email}" Header="Customer Email" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=prob_title}" Header="Problem Title" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assigned User" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=solution}" Header="Solution" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=solu_by}" Header="Solved By" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=datetime}" Header="Date" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Number of Tickets">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Ticket">
+            <TabItem Header="Open and Resolved Tickets">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Category">
+            <TabItem Header="User">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>

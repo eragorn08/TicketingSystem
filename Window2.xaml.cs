@@ -25,7 +25,7 @@ namespace Ticketing_System
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "root";
+        string password = "Mac&see19";
 
         
 
@@ -169,6 +169,16 @@ namespace Ticketing_System
                 //mashoshow sa window ung problem stuff
                 txtTicketProblem.Text = showprob;
                 lblTicketTitle.Content = titledb;
+        }
+
+        private void txtTicketProblem_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtTicketSolution_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
