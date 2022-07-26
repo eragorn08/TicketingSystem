@@ -10,15 +10,31 @@
         <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="SLA Compliance">
                 <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="157*"/>
+                        <ColumnDefinition Width="637*"/>
+                    </Grid.ColumnDefinitions>
 
-                    <Button x:Name="bSLA" Content="Load Table" HorizontalAlignment="Left" Margin="52,34,0,0" VerticalAlignment="Top" Click="bSLA_Click"/>
+                    <Button 
+                        x:Name="bSLA" 
+                        Content="Load Table" 
+                        HorizontalAlignment="Left" 
+                        Margin="151,310,0,0" 
+                        VerticalAlignment="Top" 
+                        Click="bSLA_Click" 
+                        Height="50" 
+                        Width="178" 
+                        FontSize="30" 
+                        FontWeight="Normal" 
+                        Grid.Column="1"/>
+
                     <DataGrid 
                         x:Name="dgSLA" 
                         d:ItemsSource="{d:SampleData ItemCount=8}" 
-                        Margin="171,0,0,0"
+                        Margin="22,20,21,101"
                         AutoGenerateColumns="False"
                         ItemsSource="{Binding Path=loaddatabinding}"
-                        CanUserResizeRows="False">
+                        CanUserResizeRows="False" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=cust_email}" Header="Customer Email" IsReadOnly="True"/>
@@ -34,14 +50,92 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Number of Tickets">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid 
+                        x:Name="dgNoT" 
+                        d:ItemsSource="{d:SampleData ItemCount=3}" 
+                        Margin="199,74,199,203"
+                        AutoGenerateColumns="False"
+                        ItemsSource="{Binding Path=loaddatabinding}"
+                        CanUserResizeRows="False" SelectionChanged="dgNoT_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Number_of_Tickets}" Header="Number of Tickets" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Category" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button 
+                        x:Name="bNoT" 
+                        Content="Load Table" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,208,0,0" 
+                        VerticalAlignment="Top" 
+                        Click="bNoT_Click" 
+                        Height="50" 
+                        Width="178" 
+                        FontSize="30" 
+                        FontWeight="Normal"/>
+
+                </Grid>
             </TabItem>
+            
             <TabItem Header="Open and Resolved Tickets">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="161*"/>
+                        <ColumnDefinition Width="633*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <DataGrid 
+                        x:Name="dgOaR" 
+                        d:ItemsSource="{d:SampleData ItemCount=10}" 
+                        Margin="21,21,21,101"
+                        AutoGenerateColumns="False"
+                        ItemsSource="{Binding loaddatabinding}"
+                        CanUserResizeRows="False" SelectionChanged="dgOaR_SelectionChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=cust_name}" Header="Customer Name" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=cust_email}" Header="Customer Email" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=prob_title}" Header="Problem Title" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=problem}" Header="Problem" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assgined User" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=solution}" Header="Solution" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=solu_by}" Header="Solved By" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=datetime}" Header="Date" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
+                    <Button 
+                        x:Name="bOaR" 
+                        Content="Load Table" 
+                        HorizontalAlignment="Left" 
+                        Margin="147,310,0,0" 
+                        VerticalAlignment="Top" 
+                        Click="bOaR_Click" 
+                        Height="50" 
+                        Width="178" 
+                        FontSize="30" 
+                        FontWeight="Normal" Grid.Column="1"/>
+                </Grid>
             </TabItem>
+            
             <TabItem Header="User">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
+        
+        <Button 
+            x:Name="btnLogout" 
+            Content="Logout" 
+            HorizontalAlignment="Left" 
+            Margin="638,350,0,0" 
+            VerticalAlignment="Top" 
+            Height="44" Width="86" 
+            FontSize="15" 
+            FontWeight="Bold" 
+            Click="btnLogout_Click"/>
     </Grid>
 </Window>

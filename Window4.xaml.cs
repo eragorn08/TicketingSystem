@@ -24,7 +24,7 @@ namespace Ticketing_System
         string server = "localhost";
         string database = "ticketingsystemdb";
         string username = "root";
-        string password = "root";
+        string password = "Mac&see19";
 
         public Window4()
         {
@@ -33,7 +33,6 @@ namespace Ticketing_System
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
         }
-
         private void bSLA_Click(object sender, RoutedEventArgs e)
         {
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
@@ -46,9 +45,48 @@ namespace Ticketing_System
             dgSLA.DataContext = ds;
         }
 
+        private void bNoT_Click(object sender, RoutedEventArgs e)
+        {
+            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            MySqlConnection conn = new MySqlConnection(constring);
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(ticket_id) AS Number_of_Tickets, ass_user, stat FROM `tb_mainstaff` GROUP BY stat", conn);
+            conn.Open();
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adp.Fill(ds, "loaddatabinding");
+            dgNoT.DataContext = ds;
+        }
+
+        private void bOaR_Click(object sender, RoutedEventArgs e)
+        {
+            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            MySqlConnection conn = new MySqlConnection(constring);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `tb_mainstaff` GROUP BY stat", conn);
+            conn.Open();
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adp.Fill(ds, "loaddatabinding");
+            dgOaR.DataContext = ds;
+        }
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void dgNoT_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dgOaR_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mn = new MainWindow();
+            mn.Show();
+            this.Hide();
         }
     }
 }
