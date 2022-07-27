@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="Window1" Height="493" Width="800">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Registration Page" Height="493" Width="800">
     <Grid Margin="0,0,0,-6">
         <Image Source="/logo.png" Margin="293,10,293,309" RenderTransformOrigin="0.515,0.203"/>
         <Rectangle HorizontalAlignment="Center" Height="249" Margin="0,179,0,0" Stroke="Black" VerticalAlignment="Top" Width="708"/>

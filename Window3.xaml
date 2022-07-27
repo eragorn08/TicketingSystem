@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="User" 
+        ResizeMode="NoResize"
+        Title="User Service"
+        WindowStartupLocation="CenterScreen"
         Height="800" 
         Width="1200">
 

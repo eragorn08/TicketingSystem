@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="Admin" Height="800" Width="1200">
+        ResizeMode="NoResize"
+        Title="Administrator Service"
+        WindowStartupLocation="CenterScreen"
+        Height="800" Width="1200">
     <Grid>
         <TabControl SelectionChanged="TabControl_SelectionChanged">
             <TabItem Header="SLA Compliance" FontSize="20">
@@ -166,7 +169,7 @@
                             <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" Width="*" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=cust_name}" Header="Customer Name" Width="*" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=prob_title}" Header="Problem Title" Width="*" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assgined User" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assigned User" Width="*" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label 

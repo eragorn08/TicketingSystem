@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
         ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         Title="Staff System Service" Height="648" Width="857">
     <Grid Margin="0,0,10,0">
         <TabControl>
@@ -57,13 +58,6 @@
                         VerticalContentAlignment="Center"
                         VerticalAlignment="Top" 
                         Width="394" Height="37" FontSize="18" Grid.Column="1"/>
-                    <TextBox x:Name="txtProblem" 
-                        HorizontalAlignment="Left" 
-                        Margin="80,239,0,0" 
-                        TextWrapping="Wrap" 
-                        Text="" 
-                        VerticalAlignment="Top" 
-                        Width="727" Height="141" FontSize="18" Grid.ColumnSpan="2"/>
                     <Button x:Name="btnCancelGenerate" Content="Cancel" 
                             HorizontalAlignment="Left" 
                             Margin="487,391,0,0" 
@@ -89,6 +83,13 @@
                         VerticalContentAlignment="Center"
                         VerticalAlignment="Top" 
                         Width="394" Height="37" FontSize="18" Grid.Column="1"/>
+                    <TextBox x:Name="txtProblem" 
+                        HorizontalAlignment="Left" 
+                        Margin="80,239,0,0" 
+                        TextWrapping="Wrap" 
+                        Text="" 
+                        VerticalAlignment="Top" 
+                        Width="727" Height="141" FontSize="18" Grid.ColumnSpan="2"/>
 
                 </Grid>
             </TabItem>
@@ -104,7 +105,7 @@
                         <ColumnDefinition Width="623*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="Assign A Ticket" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24" Grid.ColumnSpan="3" Grid.Column="2"/>
-                    <Label Content="Assign a Ticket to you Users" HorizontalAlignment="Left" Margin="3,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2" FontSize="18"/>
+                    <Label Content="Assign a Ticket to you Users" HorizontalAlignment="Left" Margin="3,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2" FontSize="14"/>
                     <Label Content="Pick a Ticket ID:" 
                         HorizontalAlignment="Left" 
                         Margin="6,78,0,0" 
@@ -129,7 +130,7 @@
                         HorizontalContentAlignment="Center"
                         FontSize="20"
                         FontStyle="Italic" Width="308" Grid.Column="4"/>
-                    <TextBox x:Name="txtTicketProblem" IsReadOnly="True" HorizontalAlignment="Left" Margin="288,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360" TextChanged="txtTicketProblem_TextChanged" Grid.Column="4"/>
+                    <TextBox x:Name="txtTicketProblem" IsReadOnly="True" HorizontalAlignment="Left" Margin="288,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360" TextChanged="txtTicketProblem_TextChanged" Grid.Column="4" FontSize="13"/>
 
                     <Label Content="Assign to User:" 
                         HorizontalAlignment="Left" 
@@ -172,7 +173,7 @@
                 <Grid Background="#FFE5E5E5" 
                       Margin="0,11,0,99">
                     <Label Content="Solve a Ticket" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24"/>
-                    <Label Content="Solve the Ticket assigned to you." HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top" FontSize="18"/>
+                    <Label Content="Solve the Ticket assigned to you." HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <Label Content="Pick a Ticket ID:" 
                         HorizontalAlignment="Left" 
                         Margin="422,28,0,0" 
@@ -200,7 +201,7 @@
                              Text="" 
                              VerticalAlignment="Top" 
                              Width="352" 
-                             Height="317"/>
+                             Height="317" FontSize="13"/>
 
                     <Label Content="Solution" 
                         HorizontalAlignment="Left" 
@@ -215,7 +216,7 @@
                         Text="" 
                         VerticalAlignment="Top" 
                         Width="389" 
-                        Height="180" TextChanged="txtTicketSolution_TextChanged"/>
+                        Height="180" TextChanged="txtTicketSolution_TextChanged" FontSize="13"/>
 
                     <Label Content="Change Status:" 
                         HorizontalAlignment="Left" 
@@ -249,7 +250,7 @@
                         Width="97" FontSize="20" FontWeight="Bold" Click="btnShowSolve_Click"/>
                 </Grid>
             </TabItem>
-            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            
         </TabControl>
         <Button x:Name="btnLogout" 
                 Content="Logout" 

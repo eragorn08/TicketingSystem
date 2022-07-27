@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="615" Width="800">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="Log-In Page" Height="615" Width="800">
     <Grid Margin="0,0,0,-6">
         <Rectangle HorizontalAlignment="Left" Height="286" Margin="130,176,0,0" Stroke="Black" VerticalAlignment="Top" Width="556"/>
         <TextBox x:Name="uname" HorizontalAlignment="Left" Margin="324,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="24" TextChanged="TextBox_TextChanged"/>
