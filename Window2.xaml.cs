@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
         
-        public string password = "root";
+        public string password = "Mac&see19";
         
 
         //Encapsulation for the Values of Input
@@ -90,10 +90,12 @@ namespace Ticketing_System
             {
                 cmbAssign.Items.Add(read_assign.GetString("Username"));
             }
-           
+
             //ASSIGN TO TICKET ID AGAIN
+            string uname1 = Uname.name;
             MySqlConnection conn3 = new MySqlConnection(constring);
-            MySqlCommand cmd2 = new MySqlCommand("Select ticket_id from tb_mainstaff", conn3);
+            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1", conn3);
+            cmd2.Parameters.Add("@uname1", MySqlDbType.String).Value = uname1;
             conn3.Open();
             MySqlDataReader read_id2 = cmd2.ExecuteReader();
             //Assign to Solve Ticket ID
@@ -281,6 +283,7 @@ namespace Ticketing_System
                 namedb = read_show.GetString("cust_name");
                 cus_problemdb = read_show.GetString("problem");
                 txtTicketSolution.Text = read_show.GetString("solution");
+                cmbStatusChange.Text = read_show.GetString("stat");
             }
 
             //Full Problem Stuff
@@ -305,15 +308,16 @@ namespace Ticketing_System
             server = "localhost";
             database = "ticketingsystemdb";
             username = "root";
+            string unames = Uname.name;
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
-            //Ayusin dapat kung sino nagsolve nito
-            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@prob_solve,solu_by='MainStaff',stat=@status,datetime=@datetime Where tb_mainstaff.ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@prob_solve,solu_by=@unames,stat=@status,datetime=@datetime Where tb_mainstaff.ticket_id=@selection", conn);
             cmd.Parameters.Add("@prob_solve", MySqlDbType.String).Value = prob_solve;
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             cmd.Parameters.Add("@status", MySqlDbType.String).Value = status;
             cmd.Parameters.Add("@datetime", MySqlDbType.String).Value = datetime;
+            cmd.Parameters.Add("@unames", MySqlDbType.String).Value = unames;
             conn.Open();
             MySqlDataReader read_show = cmd.ExecuteReader();
 

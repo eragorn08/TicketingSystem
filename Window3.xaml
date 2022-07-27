@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ticketing_System"
         mc:Ignorable="d"
-        Title="User
-        " Height="450" Width="800">
+        Title="User" 
+        Height="800" 
+        Width="1200">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -19,98 +20,103 @@
             x:Name="lblTitle" 
             Grid.Column="1" 
             Content="LIST OF ASSIGNED CUSTOMER SUPPORT TICKETS" 
-            HorizontalAlignment="Center" 
-            Margin="0,10,0,0" 
+            HorizontalAlignment="Left" 
+            Margin="35,10,0,0" 
             VerticalAlignment="Top" 
-            Width="648" 
+            Width="976" 
             FontWeight="Bold" 
-            FontSize="27"/>
+            FontSize="40" Height="68"/>
 
         <Rectangle 
-            HorizontalAlignment="Center" 
-            Height="360" Margin="0,52,0,0" 
+            HorizontalAlignment="Left" 
+            Height="691" Margin="13,83,0,0" 
             Stroke="Black" 
             VerticalAlignment="Top" 
-            Width="780" 
+            Width="1018" 
             Grid.Column="1"/>
 
         <ComboBox 
             x:Name="cbTicketID" 
             HorizontalAlignment="Left" 
-            Margin="91,67,0,0" 
+            Margin="35,159,0,0" 
             VerticalAlignment="Top" 
-            Width="238" Grid.Column="1" 
-            SelectionChanged="cbTicketID_SelectionChanged" Height="34"/>
+            Width="460" Grid.Column="1" 
+            SelectionChanged="cbTicketID_SelectionChanged" Height="50"
+            HorizontalContentAlignment="Center" FontSize="30"/>
 
         <Button 
             x:Name="bShow" 
             Grid.Column="1" Content="Show" 
             HorizontalAlignment="Left" 
-            Margin="373,67,0,0" 
+            Margin="551,159,0,0" 
             VerticalAlignment="Top" 
-            Click="bShow_Click" Width="92" Height="34" FontWeight="Normal" FontSize="20"/>
+            Click="bShow_Click" Width="460" Height="50" FontWeight="Normal" FontSize="30"/>
 
         <TextBox 
             x:Name="tbProblemTitle" 
             IsReadOnly="True"
             Grid.Column="1" 
             HorizontalAlignment="Left" 
-            Height="31" 
-            Margin="24,106,0,0" 
+            Height="50" 
+            Margin="35,214,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top"
-            Width="305" 
+            Width="460" 
             TextChanged="TextBox_TextChanged" 
             Text="Problem Title" 
             HorizontalContentAlignment="Center" 
             VerticalContentAlignment="Center" 
-            FontSize="20" FontWeight="Bold"/>
+            FontSize="30" FontWeight="Bold"/>
 
         <Label 
             x:Name="lblSolution" 
             Grid.Column="1" 
             Content="Solution" 
             HorizontalAlignment="Left" 
-            Margin="477,103,0,0" 
+            Margin="551,214,0,0" 
             VerticalAlignment="Top" 
-            FontSize="20" FontWeight="Bold"/>
+            FontSize="30" 
+            FontWeight="Bold" 
+            Width="460" 
+            Height="50"
+            HorizontalContentAlignment="Center"/>
 
         <TextBox 
             x:Name="tbProblem" 
             IsReadOnly="True"
             Grid.Column="1" 
             HorizontalAlignment="Left" 
-            Margin="24,149,0,0" 
+            Margin="35,269,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
-            Width="305" Height="150" FontSize="18"/>
+            Width="460" Height="263" FontSize="15"/>
 
         <TextBox 
             x:Name="tbSolution" 
             Grid.Column="1" 
             HorizontalAlignment="Left" 
-            Margin="373,149,0,0" 
+            Margin="551,269,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
-            Width="297" Height="150" 
-            TextChanged="tbSolution_TextChanged" FontSize="18"/>
+            Width="460" Height="263" 
+            TextChanged="tbSolution_TextChanged" FontSize="15"/>
 
         <Label 
             x:Name="lblStatus" 
             Grid.Column="1" 
             Content="Status :" 
             HorizontalAlignment="Left" 
-            Margin="250,299,0,0" 
+            Margin="375,537,0,0" 
             VerticalAlignment="Top" 
-            FontSize="20" RenderTransformOrigin="-0.037,0.77" FontWeight="Bold"/>
+            FontSize="30" RenderTransformOrigin="-0.037,0.77" FontWeight="Bold" Width="120" Height="50"/>
 
         <ComboBox 
             x:Name="cbStatus" 
             HorizontalAlignment="Left" 
-            Margin="373,306,0,0" 
+            Margin="551,537,0,0" 
             VerticalAlignment="Top" 
-            Width="149" Grid.Column="1" 
-            SelectionChanged="cbStatus_SelectionChanged" Height="30" FontSize="18"
+            Width="460" Grid.Column="1" 
+            SelectionChanged="cbStatus_SelectionChanged" Height="50" FontSize="30"
             HorizontalContentAlignment="Center">
 
             <ComboBoxItem Content="Solved"></ComboBoxItem>
@@ -122,11 +128,23 @@
             Grid.Column="1" 
             Content="Confirm" 
             HorizontalAlignment="Center" 
-            Margin="0,350,0,0" 
+            Margin="0,610,0,0" 
             VerticalAlignment="Top" 
             Click="bConfirm_Click" 
-            Width="92" Height="44" FontSize="20"/>
-        <Button x:Name="btnLogout" Grid.Column="1" Content="Logout" HorizontalAlignment="Left" Margin="584,350,0,0" VerticalAlignment="Top" Height="44" Width="86" FontSize="20" FontWeight="Normal" Click="btnLogout_Click"/>
+            Width="230" Height="50" FontSize="30"/>
+        <Button x:Name="btnLogout" Grid.Column="1" Content="Logout" HorizontalAlignment="Center" Margin="0,692,0,0" VerticalAlignment="Top" Height="50" Width="230" FontSize="30" FontWeight="Bold" Click="btnLogout_Click"/>
+        <Label 
+            x:Name="lblTicketID" 
+            Grid.Column="1" 
+            Content="Ticket ID" 
+            HorizontalAlignment="Left" 
+            Margin="35,104,0,0" 
+            VerticalAlignment="Top" 
+            FontSize="30" 
+            FontWeight="Bold" 
+            Width="460" 
+            Height="50"
+            HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

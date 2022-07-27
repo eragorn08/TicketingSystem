@@ -25,7 +25,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Mac&see19";
 
         private string Titledb;
         private string Cus_problemdb;
@@ -39,10 +39,9 @@ namespace Ticketing_System
         public Window3()
         {
             InitializeComponent();
-            Fillcombo();
-
+            Fillcomboticket();
         }
-        void Fillcombo()
+        void Fillcomboticket()
         {
             server = "localhost";
             database = "ticketingsystemdb";
@@ -60,6 +59,10 @@ namespace Ticketing_System
                 cbTicketID.Items.Add(TicketIDs);
             }
         }
+
+
+
+
         private void bShow_Click(object sender, RoutedEventArgs e)
         {
             string selection = this.cbTicketID.Text;
@@ -79,7 +82,7 @@ namespace Ticketing_System
                 titledb = read_id.GetString("prob_title");
                 cus_problemdb = read_id.GetString("problem");
                 tbSolution.Text = read_id.GetString("solution");
-
+                cbStatus.Text = read_id.GetString("stat");
             }
 
             tbProblemTitle.Text = titledb;

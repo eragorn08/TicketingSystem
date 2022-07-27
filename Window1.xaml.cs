@@ -25,7 +25,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Mac&see19";
 
         string cpass;
         public Window1()
@@ -68,20 +68,32 @@ namespace Ticketing_System
             if (registeruser.Name == "")
             {
                 nname.Content = "Please Input Name";
-            } 
+            } else
+            {
+                nname.Content = "";
+            }
             if (registeruser.Username == "")
             {
                 nuname.Content = "Please Input Username";
+            }else
+            {
+                nuname.Content = "";
             }
             if (registeruser.UPassword == "")
             {
                 npass.Content = "Please Input Password";
+            }else
+            {
+                npass.Content = "";
             }
             if (cpass == "")
             {
                 ncpass.Content = "Please Repeat Password";
+            }else
+            {
+                ncpass.Content = "";
             }
-            if(registeruser.Name != "" && registeruser.Username != "" && registeruser.UPassword != "" && cpass != "")
+            if (registeruser.Name != "" && registeruser.Username != "" && registeruser.UPassword != "" && cpass != "")
             {
                 if (registeruser.UPassword == cpass)
                 {
@@ -100,6 +112,10 @@ namespace Ticketing_System
                     rPass.Text = "";
                     rUName.Text = "";
                     rCPass.Text = "";
+
+                    MainWindow mainwin = new MainWindow();
+                    mainwin.Show();
+                    this.Hide();
                 }
                 else
                 {

@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Mac&see19";
 
         public Window4()
         {
@@ -47,8 +47,8 @@ namespace Ticketing_System
 
             while (read_id.Read())
             {
-                String empname = read_id.GetString("Name");
-                cbUser.Items.Add(empname);
+                String username = read_id.GetString("Username");
+                cbUser.Items.Add(username);
             }
         }
 
@@ -138,7 +138,7 @@ namespace Ticketing_System
             conn.Open();
             MySqlDataReader read_id = cmd.ExecuteReader();
 
-            MessageBoxResult mesSolved = MessageBox.Show("The User permission has been changed to " + sPermission);
+            
 
             MySqlConnection conn2 = new MySqlConnection(constring);
             MySqlCommand cmd2 = new MySqlCommand("Select EmpID, Name, Username, Password, Permission, AddedOn From empuser", conn2);
@@ -147,6 +147,26 @@ namespace Ticketing_System
             DataSet ds2 = new DataSet();
             adp2.Fill(ds2, "loaddatabinding");
             dgUser.DataContext = ds2;
+
+            if (cbPermission.Text == sPermission)
+            {
+                MessageBox.Show("It is alread in permission "+ sPermission);
+            }
+            else
+            {
+                MessageBoxResult mesSolved = MessageBox.Show("The User permission has been changed to " + sPermission);
+            }
+
+            cbUser.Text = "";
+            cbPermission.Text = "";
+        }
+
+        private void dgOaR_CellDoubleClick(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView row = (DataRowView)dgOaR.SelectedItems[0];
+            string r = (string)row["ticket_id"];
+
+            Console.WriteLine(r);
         }
         private void dgSLA_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
