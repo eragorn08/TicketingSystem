@@ -27,7 +27,12 @@ namespace Ticketing_System
         public string username { get { return Username; } set { Username = value; } }
         public string password = "root";
 
-        string titledb, cus_problemdb;
+        private string Titledb;
+        private string Cus_problemdb;
+
+        public string titledb{ get { return Titledb; } set { Titledb = value; } }
+        public string cus_problemdb { get { return Cus_problemdb; } set { Cus_problemdb = value; } }
+
         private object read_show;
         string namepass = Uname.name;
 
