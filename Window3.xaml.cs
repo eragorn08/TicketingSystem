@@ -18,10 +18,14 @@ namespace Ticketing_System
 {
     public partial class Window3 : Window
     {
-        string server = "localhost";
-        string database = "ticketingsystemdb";
-        string username = "root";
-        string password = "Mac&see19";
+        //Encapsulation
+        private string Server;
+        private string Database;
+        private string Username;
+        public string server { get { return Server; } set { Server = value; } }
+        public string database { get { return Database; } set { Database = value; } }
+        public string username { get { return Username; } set { Username = value; } }
+        public string password = "root";
 
         string titledb, cus_problemdb;
         private object read_show;
@@ -35,9 +39,13 @@ namespace Ticketing_System
         }
         void Fillcombo()
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff", conn);
+            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff WHERE ass_user=@namepass", conn);
+            cmd.Parameters.Add("@namepass", MySqlDbType.String).Value = namepass;
             conn.Open();
             MySqlDataReader read_id = cmd.ExecuteReader();
 
@@ -51,6 +59,9 @@ namespace Ticketing_System
         {
             string selection = this.cbTicketID.Text;
 
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where ticket_id=@selection", conn);
@@ -77,6 +88,9 @@ namespace Ticketing_System
             string sStatus = cbStatus.Text;
             string sDateTime = DateTime.Now.ToString("yyyy-MM-dd");
 
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@sSolution,solu_by=@namepass,stat=@sStatus,datetime=@sDateTime Where tb_mainstaff.ticket_id=@selection", conn);

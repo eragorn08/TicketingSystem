@@ -18,16 +18,22 @@ namespace Ticketing_System
     public partial class Window1 : Window
     {
         //SQL Status
-        string server = "localhost";
-        string database = "ticketingsystemdb";
-        string username = "root";
-        string password = "Mac&see19";
+        //Encapsulation
+        private string Server;
+        private string Database;
+        private string Username;
+        public string server { get { return Server; } set { Server = value; } }
+        public string database { get { return Database; } set { Database = value; } }
+        public string username { get { return Username; } set { Username = value; } }
+        public string password = "root";
 
         string name, uname, pass, cpass;
         public Window1()
         {
             InitializeComponent();
-
+            string server = "localhost";
+            string database = "ticketingsystemdb";
+            string username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
@@ -48,6 +54,9 @@ namespace Ticketing_System
         }
         private void reg_Click(object sender, RoutedEventArgs e)
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 

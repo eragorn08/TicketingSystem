@@ -21,10 +21,13 @@ namespace Ticketing_System
     /// </summary>
     public partial class Window4 : Window
     {
-        string server = "localhost";
-        string database = "ticketingsystemdb";
-        string username = "root";
-        string password = "Mac&see19";
+        private string Server;
+        private string Database;
+        private string Username;
+        public string server { get { return Server; } set { Server = value; } }
+        public string database { get { return Database; } set { Database = value; } }
+        public string username { get { return Username; } set { Username = value; } }
+        public string password = "root";
 
         public Window4()
         {
@@ -33,6 +36,9 @@ namespace Ticketing_System
         }
         void FillcomboUser()
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select * from empuser", conn);
@@ -48,6 +54,9 @@ namespace Ticketing_System
 
         private void bSLA_Click(object sender, RoutedEventArgs e)
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select ticket_id, cust_email, prob_title, ass_user, solution, solu_by, stat, datetime From tb_mainstaff", conn);
@@ -60,6 +69,9 @@ namespace Ticketing_System
 
         private void bNoT_Click(object sender, RoutedEventArgs e)
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("SELECT COUNT(ticket_id) AS Number_of_Tickets, ass_user, stat FROM `tb_mainstaff` GROUP BY stat", conn);
@@ -72,6 +84,9 @@ namespace Ticketing_System
 
         private void bOaR_Click(object sender, RoutedEventArgs e)
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, solu_by, stat, datetime From tb_mainstaff Where stat= 'Solved'", conn);
@@ -94,6 +109,9 @@ namespace Ticketing_System
         }
         private void bUser_LoadTable_Click(object sender, RoutedEventArgs e)
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select EmpID, Name, Username, Password, Permission, AddedOn From empuser", conn);
@@ -108,6 +126,9 @@ namespace Ticketing_System
             string selection = this.cbUser.Text;
             string sPermission = cbPermission.Text;
 
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Update empuser Set Permission=@sPermission Where empuser.Name=@selection", conn);

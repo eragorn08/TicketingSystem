@@ -27,10 +27,13 @@ namespace Ticketing_System
     }
     public partial class MainWindow : Window
     {
-        string server = "localhost";
-        string database = "ticketingsystemdb";
-        string username = "root";
-        string password = "Mac&see19";
+        private string Server;
+        private string Database;
+        private string Username;
+        public string server { get { return Server;  } set { Server = value; } }
+        public string database { get { return Database; } set { Database = value; } }
+        public string username { get { return Username; } set { Username = value; } }
+        public string password = "root";
 
         string pass;
         string name = Uname.name;
@@ -58,6 +61,9 @@ namespace Ticketing_System
 
         private void Login(object sender, RoutedEventArgs e)
         {
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 

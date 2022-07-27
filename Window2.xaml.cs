@@ -15,30 +15,55 @@ using System.Windows.Shapes;
 
 namespace Ticketing_System
 {
-    /// <summary>
-    /// Interaction logic for Window2.xaml
-    /// </summary>
+    
     public partial class Window2 : Window
     {
 
-        //For the Connection to the Database
-        string server = "localhost";
-        string database = "ticketingsystemdb";
-        string username = "root";
-        string password = "Mac&see19";
-
+        //Encapsulation For the Connection to the Database
+        private string Server;
+        private string Database;
+        private string Username;
+        public string server { get { return Server; } set { Server = value; } }
+        public string database { get { return Database; } set { Database = value; } }
+        public string username { get { return Username; } set { Username = value; } }
+        
+        public string password = "root";
         
 
+        //Encapsulation for the Values of Input
+        private string Name;
+        private string Email;
+        private string Title;
+        private string Cus_Problem;
+        public string name { get { return Name; } set { Name = value; } }
+        public string email { get { return Email; } set { Email = value; } }
+        public string title { get { return Title; } set { Title = value; } }
+        public string cus_problem { get { return Cus_Problem; } set { Cus_Problem = value; } }
 
-        string name, email, title, cus_problem;
-        string namedb, emaildb, titledb, cus_problemdb;
-        string assignment, prob_solve, showprob;
+        //Encapsulation for the Vaues of Database Reads
+        private string Namedb;
+        private string Emaildb;
+        private string Titledb;
+        private string Cus_problemdb;
+        private string Assignment;
+        private string Prob_solve;
+        private string Showprob;
+        public string namedb { get { return Namedb; } set { Namedb = value; } }
+        public string emaildb { get { return Emaildb; } set { Emaildb = value; } }
+        public string titledb { get { return Titledb; } set { Titledb = value; } }
+        public string cus_problemdb { get { return Cus_problemdb; } set { Cus_problemdb = value; } }
+        public string assignment { get { return Assignment; } set { Assignment = value; } }
+        public string prob_solve { get { return Prob_solve; } set { Prob_solve = value; } }
+        public string showprob { get { return Showprob; } set { Showprob = value; } }
 
         public Window2()
         {
             InitializeComponent();
 
-            //Eto ung Server wahahahha
+            //Eto ung Server
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
@@ -87,7 +112,10 @@ namespace Ticketing_System
         //Generate Ticket
         private void btnConfirmGenerate_Click(object sender, RoutedEventArgs e)
         {
-            //Eto ubg Server whahahah
+            //Eto ubg Server
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
@@ -147,6 +175,9 @@ namespace Ticketing_System
             string selection = this.cmbTicketID.Text;
 
             //SQL CONNECTION
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where ticket_id=@selection", conn);
@@ -196,6 +227,9 @@ namespace Ticketing_System
             MessageBoxResult msgAssignment = MessageBox.Show("The Ticket " +title+" Has been assigned to User "+assignment, "Assigned");
 
             //SQL CONNECTION
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set ass_user=@assignment Where tb_mainstaff.ticket_id=@selection", conn);
@@ -229,6 +263,9 @@ namespace Ticketing_System
             string selection = this.cmbTicketIDSolve.Text;
 
             //SQL CONNECTION
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
             MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where ticket_id=@selection", conn);
@@ -265,6 +302,9 @@ namespace Ticketing_System
             string datetime = DateTime.Now.ToString("yyyy-MM-dd");
 
             //SQL CONNECTION
+            server = "localhost";
+            database = "ticketingsystemdb";
+            username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
