@@ -21,23 +21,23 @@ namespace Ticketing_System
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    static class Uname 
+    static class Uname
     {
         public static string name;
     }
+
     public partial class MainWindow : Window
     {
         private string Server;
         private string Database;
         private string Username;
-        public string server { get { return Server;  } set { Server = value; } }
+        public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Eragorn110800";
 
-        string pass;
         string name = Uname.name;
- 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -67,22 +67,23 @@ namespace Ticketing_System
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
+            user loginuser = new user();
+
             int i = 0;
             int log_perm = 0;
-            name = uname.Text;
+            loginuser.Username = uname.Text;
+            loginuser.UPassword = passw.Password;
+            MySqlDataReader perm;
 
             //Dinagdag ko to alex
             Uname.name = uname.Text;
-
-            pass = passw.Password;
-            MySqlDataReader perm;
 
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from empuser where Username=@name and Password=@pass";
-            cmd.Parameters.Add("@name", MySqlDbType.String).Value = name;
-            cmd.Parameters.Add("@pass", MySqlDbType.String).Value = pass;
+            cmd.Parameters.Add("@name", MySqlDbType.String).Value = loginuser.Username;
+            cmd.Parameters.Add("@pass", MySqlDbType.String).Value = loginuser.UPassword;
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);

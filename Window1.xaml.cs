@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string username { get { return Username; } set { Username = value; } }
         public string password = "root";
 
-        string name, uname, pass, cpass;
+        string cpass;
         public Window1()
         {
             InitializeComponent();
@@ -59,21 +59,21 @@ namespace Ticketing_System
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-
-            name = rName.Text;
-            uname = rUName.Text;
-            pass = rPass.Text;
+            user registeruser = new user();
+            registeruser.Name = rName.Text;
+            registeruser.Username = rUName.Text;
+            registeruser.UPassword = rPass.Text;
             cpass = rCPass.Text;
 
-            if (name == "")
+            if (registeruser.Name == "")
             {
                 nname.Content = "Please Input Name";
             } 
-            if (uname == "")
+            if (registeruser.Username == "")
             {
                 nuname.Content = "Please Input Username";
             }
-            if (pass == "")
+            if (registeruser.UPassword == "")
             {
                 npass.Content = "Please Input Password";
             }
@@ -81,16 +81,16 @@ namespace Ticketing_System
             {
                 ncpass.Content = "Please Repeat Password";
             }
-            if(name != "" && uname != "" && pass != "" && cpass != "")
+            if(registeruser.Name != "" && registeruser.Username != "" && registeruser.UPassword != "" && cpass != "")
             {
-                if (pass == cpass)
+                if (registeruser.UPassword == cpass)
                 {
                     string datetime = DateTime.Now.ToString("yyyy-MM-dd");
 
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO empuser(Name,Username,Password,Permission,AddedOn) Values(@name,@uname,@pass,3,@datetime);", conn);
-                    cmd.Parameters.Add("@name", MySqlDbType.String).Value = name;
-                    cmd.Parameters.Add("@uname", MySqlDbType.String).Value = uname;
-                    cmd.Parameters.Add("@pass", MySqlDbType.String).Value = pass;
+                    cmd.Parameters.Add("@name", MySqlDbType.String).Value = registeruser.Name;
+                    cmd.Parameters.Add("@uname", MySqlDbType.String).Value = registeruser.Username;
+                    cmd.Parameters.Add("@pass", MySqlDbType.String).Value = registeruser.UPassword;
                     cmd.Parameters.Add("@datetime", MySqlDbType.String).Value = datetime;
                     conn.Open();
                     MySqlDataReader read_gen = cmd.ExecuteReader();

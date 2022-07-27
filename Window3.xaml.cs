@@ -25,7 +25,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Eragorn110800";
 
         string titledb, cus_problemdb;
         private object read_show;
