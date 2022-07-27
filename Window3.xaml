@@ -52,6 +52,7 @@
 
         <TextBox 
             x:Name="tbProblemTitle" 
+            IsReadOnly="True"
             Grid.Column="1" 
             HorizontalAlignment="Left" 
             Height="31" 
@@ -76,6 +77,7 @@
 
         <TextBox 
             x:Name="tbProblem" 
+            IsReadOnly="True"
             Grid.Column="1" 
             HorizontalAlignment="Left" 
             Margin="24,149,0,0" 

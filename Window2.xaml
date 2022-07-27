@@ -123,7 +123,7 @@
                         HorizontalContentAlignment="Center"
                         FontSize="20"
                         FontStyle="Italic" Width="308" Grid.Column="4"/>
-                    <TextBox x:Name="txtTicketProblem" HorizontalAlignment="Left" Margin="288,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360" TextChanged="txtTicketProblem_TextChanged" Grid.Column="4"/>
+                    <TextBox x:Name="txtTicketProblem" IsReadOnly="True" HorizontalAlignment="Left" Margin="288,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360" TextChanged="txtTicketProblem_TextChanged" Grid.Column="4"/>
 
                     <Label Content="Assign to User:" 
                         HorizontalAlignment="Left" 
@@ -184,7 +184,8 @@
                         VerticalAlignment="Top" 
                         FontSize="20"
                         FontStyle="Italic"/>
-                    <TextBox x:Name="txtTicketProblemSolve" 
+                    <TextBox x:Name="txtTicketProblemSolve"
+                             IsReadOnly="True"
                              HorizontalAlignment="Left"
                              Margin="36,111,0,0" 
                              TextWrapping="Wrap" 
