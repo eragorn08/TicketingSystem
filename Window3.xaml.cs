@@ -37,8 +37,7 @@ namespace Ticketing_System
         {
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@namepass", conn);
-            cmd.Parameters.Add("@namepass", MySqlDbType.String).Value = namepass;
+            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff", conn);
             conn.Open();
             MySqlDataReader read_id = cmd.ExecuteReader();
 

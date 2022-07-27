@@ -61,7 +61,7 @@ namespace Ticketing_System
         {
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `tb_mainstaff` GROUP BY stat", conn);
+            MySqlCommand cmd = new MySqlCommand("Select ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, solu_by, stat, datetime From tb_mainstaff", conn);
             conn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataSet ds = new DataSet();
@@ -87,6 +87,11 @@ namespace Ticketing_System
             MainWindow mn = new MainWindow();
             mn.Show();
             this.Hide();
+        }
+
+        private void dgSLA_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
