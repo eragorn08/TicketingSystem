@@ -58,6 +58,7 @@ namespace Ticketing_System
                 String TicketIDs = read_id.GetString("ticket_id");
                 cbTicketID.Items.Add(TicketIDs);
             }
+            conn.Close();
         }
 
 
@@ -87,6 +88,7 @@ namespace Ticketing_System
 
             tbProblemTitle.Text = titledb;
             tbProblem.Text = cus_problemdb;
+            conn.Close();
         }
 
         private void bConfirm_Click(object sender, RoutedEventArgs e)
@@ -117,6 +119,7 @@ namespace Ticketing_System
             tbProblem.Text = "";
             tbSolution.Text = "";
             cbStatus.Text = "";
+            conn.Close();
         }
 
 

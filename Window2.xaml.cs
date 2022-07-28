@@ -66,7 +66,7 @@ namespace Ticketing_System
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-
+            
 
             //ASSIGN TO TICKET ID
             //Selecting column from table
@@ -79,6 +79,7 @@ namespace Ticketing_System
                 String TicketIDVal = read_id.GetString("ticket_id");
                 cmbTicketID.Items.Add(TicketIDVal);
             }
+            conn.Close();
 
             //ASSIGN TO STAFF MEMBERS
             MySqlConnection conn2 = new MySqlConnection(constring);
@@ -90,6 +91,7 @@ namespace Ticketing_System
             {
                 cmbAssign.Items.Add(read_assign.GetString("Username"));
             }
+            conn2.Close();
 
             //ASSIGN TO TICKET ID AGAIN
             string uname1 = Uname.name;
@@ -103,6 +105,7 @@ namespace Ticketing_System
             {
                 cmbTicketIDSolve.Items.Add(read_id2.GetString("ticket_id"));
             }
+            conn3.Close();
 
             //ASSIGN TO SOLVE TICKET
             //Change Status to Solve Ticket ID
@@ -127,47 +130,60 @@ namespace Ticketing_System
             email = txtEmail.Text;
             title = txtTitle.Text;
             cus_problem = txtProblem.Text;
-            string datetime = DateTime.Now.ToString("yyyy-MM-dd");
-            MessageBoxResult msgSure = MessageBox.Show("The Message has been Inputted Successfully!", "Confirmation");
 
-            //PARA MA UPDATE UNG DB
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO tb_mainstaff(ticket_id,cust_name,cust_email,prob_title,problem,ass_user,solution,solu_by,stat,datetime) Values(NULL,@name,@email,@title,@cus_problem,'','','','Pending',@datetime);", conn);
-            cmd.Parameters.Add("@name", MySqlDbType.String).Value = name;
-            cmd.Parameters.Add("@email", MySqlDbType.String).Value = email;
-            cmd.Parameters.Add("@title", MySqlDbType.String).Value = title;
-            cmd.Parameters.Add("@cus_problem", MySqlDbType.String).Value = cus_problem;
-            cmd.Parameters.Add("@datetime", MySqlDbType.String).Value = datetime;
-            conn.Open();
-            MySqlDataReader read_gen = cmd.ExecuteReader();
-
-            //ASSIGN TO TICKET ID
-            //remove muna nung luma syempre
-            cmbTicketID.Items.Clear();
-            //Selecting column from table
-            MySqlConnection conn2 = new MySqlConnection(constring);
-            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff", conn2);
-            conn2.Open();
-            MySqlDataReader read_id = cmd2.ExecuteReader();
-            //Assign to Ticket ID
-            while (read_id.Read())
+            if (name == "")
             {
-                String TicketIDVal = read_id.GetString("ticket_id");
-                cmbTicketID.Items.Add(TicketIDVal);
+                MessageBox.Show("Please Enter Name First!", "Error");
             }
-
-            //ASSIGN TO TICKET ID AGAIN
-            //remove muna nung luma syempre
-            cmbTicketIDSolve.Items.Clear();
-            MySqlConnection conn3 = new MySqlConnection(constring);
-            MySqlCommand cmd3 = new MySqlCommand("Select ticket_id from tb_mainstaff", conn3);
-            conn3.Open();
-            MySqlDataReader read_id2 = cmd3.ExecuteReader();
-            //Assign to Solve Ticket ID
-            while (read_id2.Read())
+            else if (email == "")
             {
-                cmbTicketIDSolve.Items.Add(read_id2.GetString("ticket_id"));
+                MessageBox.Show("Please Enter Email First!", "Error");
             }
+            else if (title == "")
+            {
+                MessageBox.Show("Please Enter Title First!", "Error");
+            }
+            else if (cus_problem == "")
+            {
+                MessageBox.Show("Please Enter Problem First!", "Error");
+            }
+            else
+            {
+                string datetime = DateTime.Now.ToString("yyyy-MM-dd");
+                MessageBoxResult msgSure = MessageBox.Show("The Message has been Inputted Successfully!", "Confirmation");
 
+                //PARA MA UPDATE UNG DB
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO tb_mainstaff(ticket_id,cust_name,cust_email,prob_title,problem,ass_user,solution,solu_by,stat,datetime) Values(NULL,@name,@email,@title,@cus_problem,'','','','Pending',@datetime);", conn);
+                cmd.Parameters.Add("@name", MySqlDbType.String).Value = name;
+                cmd.Parameters.Add("@email", MySqlDbType.String).Value = email;
+                cmd.Parameters.Add("@title", MySqlDbType.String).Value = title;
+                cmd.Parameters.Add("@cus_problem", MySqlDbType.String).Value = cus_problem;
+                cmd.Parameters.Add("@datetime", MySqlDbType.String).Value = datetime;
+                conn.Open();
+                MySqlDataReader read_gen = cmd.ExecuteReader();
+                conn.Close();
+
+                //ASSIGN TO TICKET ID
+                //remove muna nung luma syempre
+                cmbTicketID.Items.Clear();
+                //Selecting column from table
+                MySqlConnection conn2 = new MySqlConnection(constring);
+                MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff", conn2);
+                conn2.Open();
+                MySqlDataReader read_id = cmd2.ExecuteReader();
+                //Assign to Ticket ID
+                while (read_id.Read())
+                {
+                    String TicketIDVal = read_id.GetString("ticket_id");
+                    cmbTicketID.Items.Add(TicketIDVal);
+                }
+                conn2.Close();
+
+                txtName.Text = "";
+                txtEmail.Text = "";
+                txtTitle.Text = "";
+                txtProblem.Text = "";
+            }
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -202,6 +218,7 @@ namespace Ticketing_System
                 //mashoshow sa window ung problem stuff
                 txtTicketProblem.Text = showprob;
                 lblTicketTitle.Content = titledb;
+            conn.Close();
         }
 
         private void txtTicketProblem_TextChanged(object sender, TextChangedEventArgs e)
@@ -239,15 +256,35 @@ namespace Ticketing_System
             cmd.Parameters.Add("@assignment", MySqlDbType.String).Value = assignment;
             conn.Open();
             MySqlDataReader read_show = cmd.ExecuteReader();
+            conn.Close();
+
+            //Para marefresh ang data
+            //ASSIGN TO TICKET ID AGAIN
+            cmbTicketIDSolve.Items.Clear();
+            string uname1 = Uname.name;
+            MySqlConnection conn3 = new MySqlConnection(constring);
+            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1", conn3);
+            cmd2.Parameters.Add("@uname1", MySqlDbType.String).Value = uname1;
+            conn3.Open();
+            MySqlDataReader read_id2 = cmd2.ExecuteReader();
+            //Assign to Solve Ticket ID
+            while (read_id2.Read())
+            {
+                cmbTicketIDSolve.Items.Add(read_id2.GetString("ticket_id"));
+            }
+            conn3.Close();
+
 
             //Para maclear ung laman
             cmbTicketID.Text = "";
             cmbAssign.Text = "";
             lblTicketTitle.Content = "Ticket Title";
             txtTicketProblem.Clear();
-
+            
 
             
+
+
         }
         private void btnCancelAssign_Click(object sender, RoutedEventArgs e)
         {
@@ -292,6 +329,8 @@ namespace Ticketing_System
             //ung title sa db to
             lblTicketTitleSolve.Content = titledb;
             txtTicketProblemSolve.Text = showprob;
+
+            conn.Close();
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -336,6 +375,7 @@ namespace Ticketing_System
             txtTicketProblemSolve.Clear();
             txtTicketSolution.Clear();
             cmbStatusChange.Text = "";
+            conn.Close();
         }
         private void btnCancelSolve_Click(object sender, RoutedEventArgs e)
         {
