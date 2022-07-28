@@ -19,19 +19,6 @@
                         <ColumnDefinition Width="429*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button 
-                        x:Name="bSLA" 
-                        Content="Load Table" 
-                        HorizontalAlignment="Left" 
-                        Margin="246,565,0,0" 
-                        VerticalAlignment="Top" 
-                        Click="bSLA_Click" 
-                        Height="50" 
-                        Width="230" 
-                        FontSize="30" 
-                        FontWeight="Normal" 
-                        Grid.Column="1" Grid.ColumnSpan="2"/>
-
                     <DataGrid 
                         x:Name="dgSLA" 
                         d:ItemsSource="{d:SampleData ItemCount=8}" 
@@ -92,18 +79,6 @@
                             <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" Width="*" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
-
-                    <Button 
-                        x:Name="bNoT" 
-                        Content="Load Table" 
-                        HorizontalAlignment="Left" 
-                        Margin="413,414,0,0" 
-                        VerticalAlignment="Top" 
-                        Click="bNoT_Click" 
-                        Height="50" 
-                        Width="230" 
-                        FontSize="30" 
-                        FontWeight="Normal" Grid.Column="1"/>
                     <Label 
                         x:Name="lblNoT" 
                         Content="Number of Tickets" 
@@ -144,18 +119,6 @@
                             <DataGridTextColumn Binding="{Binding Path=solu_by}" Header="Solved By" Width="*" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
-
-                    <Button 
-                        x:Name="bOaR" 
-                        Content="Load Table" 
-                        HorizontalAlignment="Left" 
-                        Margin="266,598,0,0" 
-                        VerticalAlignment="Top" 
-                        Click="bOaR_Click" 
-                        Height="50" 
-                        Width="178" 
-                        FontSize="30" 
-                        FontWeight="Normal" Grid.ColumnSpan="2" Grid.Column="1"/>
 
                     <DataGrid x:Name="dgOaR2" 
                         d:ItemsSource="{d:SampleData ItemCount=5}" 
@@ -259,18 +222,6 @@
                         <ComboBoxItem Content="3"></ComboBoxItem>
 
                     </ComboBox>
-                    <Button 
-                        x:Name="bUser_LoadTable" 
-                        Content="Load Table" 
-                        HorizontalAlignment="Left" 
-                        Margin="265,573,0,0" 
-                        VerticalAlignment="Top" 
-                        Click="bUser_LoadTable_Click"
-                        Height="50" 
-                        Width="178" 
-                        FontSize="30" 
-                        FontWeight="Normal" 
-                        Grid.Column="1"/>
                     <Label 
                         x:Name="lblUser" 
                         Content="User Permission" 
