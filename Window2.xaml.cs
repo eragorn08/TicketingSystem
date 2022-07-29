@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
         
-        public string password = "Eragorn110800";
+        public string password = "root";
         
 
         //Encapsulation for the Values of Input
@@ -149,11 +149,11 @@ namespace Ticketing_System
             }
             else
             {
-                string datetime = DateTime.Now.ToString("yyyy-MM-dd");
+                string datetime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 MessageBoxResult msgSure = MessageBox.Show("The Message has been Inputted Successfully!", "Confirmation");
 
                 //PARA MA UPDATE UNG DB
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO tb_mainstaff(ticket_id,cust_name,cust_email,prob_title,problem,ass_user,solution,solu_by,stat,datetime) Values(NULL,@name,@email,@title,@cus_problem,'','','','Pending',@datetime);", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO tb_mainstaff(ticket_id,cust_name,cust_email,prob_title,problem,ass_user,solution,solu_by,stat,datetime,solved_on) Values(NULL,@name,@email,@title,@cus_problem,'','','','Pending',@datetime,'0000-00-00 00:00:00');", conn);
                 cmd.Parameters.Add("@name", MySqlDbType.String).Value = name;
                 cmd.Parameters.Add("@email", MySqlDbType.String).Value = email;
                 cmd.Parameters.Add("@title", MySqlDbType.String).Value = title;
@@ -341,7 +341,7 @@ namespace Ticketing_System
             prob_solve = txtTicketSolution.Text;
             string status = cmbStatusChange.Text;
             string selection = this.cmbTicketIDSolve.Text;
-            string datetime = DateTime.Now.ToString("yyyy-MM-dd");
+            string solvetime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
             //SQL CONNECTION
             server = "localhost";
@@ -351,11 +351,11 @@ namespace Ticketing_System
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
-            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@prob_solve,solu_by=@unames,stat=@status,datetime=@datetime Where tb_mainstaff.ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@prob_solve,solu_by=@unames,stat=@status,solved_on=@solvetime Where tb_mainstaff.ticket_id=@selection", conn);
             cmd.Parameters.Add("@prob_solve", MySqlDbType.String).Value = prob_solve;
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             cmd.Parameters.Add("@status", MySqlDbType.String).Value = status;
-            cmd.Parameters.Add("@datetime", MySqlDbType.String).Value = datetime;
+            cmd.Parameters.Add("@solvetime", MySqlDbType.String).Value = solvetime;
             cmd.Parameters.Add("@unames", MySqlDbType.String).Value = unames;
             conn.Open();
             MySqlDataReader read_show = cmd.ExecuteReader();

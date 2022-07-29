@@ -97,7 +97,7 @@ namespace Ticketing_System
             {
                 if (registeruser.UPassword == cpass)
                 {
-                    string datetime = DateTime.Now.ToString("yyyy-MM-dd");
+                    string datetime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
                     MySqlCommand cmd = new MySqlCommand("INSERT INTO empuser(Name,Username,Password,Permission,AddedOn) Values(@name,@uname,@pass,3,@datetime);", conn);
                     cmd.Parameters.Add("@name", MySqlDbType.String).Value = registeruser.Name;

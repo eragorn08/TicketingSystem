@@ -25,7 +25,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "Eragorn110800";
+        public string password = "root";
 
         private string Titledb;
         private string Cus_problemdb;
@@ -96,18 +96,18 @@ namespace Ticketing_System
             string selection = this.cbTicketID.Text;
             string sSolution = tbSolution.Text;
             string sStatus = cbStatus.Text;
-            string sDateTime = DateTime.Now.ToString("yyyy-MM-dd");
+            string sSolveTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
 
             server = "localhost";
             database = "ticketingsystemdb";
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@sSolution,solu_by=@namepass,stat=@sStatus,datetime=@sDateTime Where tb_mainstaff.ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@sSolution,solu_by=@namepass,stat=@sStatus,solved_on=@sSolveTime Where tb_mainstaff.ticket_id=@selection", conn);
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             cmd.Parameters.Add("@sSolution", MySqlDbType.String).Value = sSolution;
             cmd.Parameters.Add("@sStatus", MySqlDbType.String).Value = sStatus;
-            cmd.Parameters.Add("@sDateTime", MySqlDbType.String).Value = sDateTime;
+            cmd.Parameters.Add("@sSolveTime", MySqlDbType.String).Value = sSolveTime;
             cmd.Parameters.Add("@namepass", MySqlDbType.String).Value = namepass;
             conn.Open();
             MySqlDataReader read_id = cmd.ExecuteReader();
