@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Mac&see19";
 
         public Window4()
         {
@@ -36,7 +36,7 @@ namespace Ticketing_System
             server = "localhost";
             database = "ticketingsystemdb";
             username = "root";
-            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";" + "Convert Zero Datetime = True";
 
             // SLA Compliance Data Grid
             MySqlConnection conn = new MySqlConnection(constring);
@@ -50,7 +50,7 @@ namespace Ticketing_System
 
             // Number of Tickets Data Grid
             MySqlConnection conn1 = new MySqlConnection(constring);
-            MySqlCommand cmd1 = new MySqlCommand("SELECT COUNT(ticket_id) AS Number_of_Tickets, ass_user, stat FROM `tb_mainstaff` GROUP BY ass_user", conn1);
+            MySqlCommand cmd1 = new MySqlCommand("SELECT COUNT(ticket_id) AS Number_of_Tickets, ass_user, stat FROM `tb_mainstaff` GROUP BY ass_user, stat", conn1);
             conn.Open();
             MySqlDataAdapter adp1 = new MySqlDataAdapter(cmd1);
             DataSet ds1 = new DataSet();
@@ -60,7 +60,7 @@ namespace Ticketing_System
 
             // Open and Resolved Tickets Data Grid
             MySqlConnection conn2 = new MySqlConnection(constring);
-            MySqlCommand cmd2 = new MySqlCommand("Select ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, solu_by, stat, datetime From tb_mainstaff Where stat='Solved'", conn2);
+            MySqlCommand cmd2 = new MySqlCommand("Select ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, solu_by, stat, datetime, solved_on  From tb_mainstaff Where stat='Solved'", conn2);
             conn2.Open();
             MySqlDataAdapter adp2 = new MySqlDataAdapter(cmd2);
             DataSet ds2 = new DataSet();

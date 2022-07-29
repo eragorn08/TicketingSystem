@@ -111,12 +111,14 @@
                         Grid.ColumnSpan="3" 
                         FontSize="18" SelectionMode="Extended">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" Width="*" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" Width="*" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=cust_name}" Header="Customer Name" Width="*" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=prob_title}" Header="Problem Title" Width="*" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assgined User" Width="*" IsReadOnly="True"/>
-                            <DataGridTextColumn Binding="{Binding Path=solu_by}" Header="Solved By" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=cust_name}" Header="Customer Name" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=prob_title}" Header="Problem Title" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assgined User" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=solu_by}" Header="Solved By" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=datetime}" Header="Ticket Created" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=solved_on}" Header="Solved Date" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -128,11 +130,12 @@
                         CanUserResizeRows="False" 
                         SelectionChanged="dgOaR2_SelectionChanged" FontSize="18" Grid.ColumnSpan="3">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ticket_id}" Header="Ticket ID" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=stat}" Header="Status" Width="*" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=cust_name}" Header="Customer Name" Width="*" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=prob_title}" Header="Problem Title" Width="*" IsReadOnly="True"/>
                             <DataGridTextColumn Binding="{Binding Path=ass_user}" Header="Assigned User" Width="*" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=datetime}" Header="Ticket Created" Width="*" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label 
