@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "root";
+        public string password = "Eragorn110800";
 
         public Window4()
         {
@@ -147,7 +147,7 @@ namespace Ticketing_System
                     MySqlDataReader read_id1 = cmd1.ExecuteReader();
                     conn1.Close();
 
-                    MessageBox.Show("The Permission of " + cbUser.Text + " is changed to " + Permission, "Sucess");
+                    MessageBox.Show("The Permission of " + cbUser.Text + " is changed to " + cbPermission.Text, "Sucess");
                 }
                 // Update User Data Grid
                 MySqlConnection conn2 = new MySqlConnection(constring);
