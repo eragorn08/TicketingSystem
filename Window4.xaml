@@ -220,9 +220,9 @@
                         Width="230" Grid.Column="1" 
                         HorizontalContentAlignment="Center"
                         SelectionChanged="cbPermission_SelectionChanged" Height="50" FontSize="30">
-                        <ComboBoxItem Content="1"></ComboBoxItem>
-                        <ComboBoxItem Content="2"></ComboBoxItem>
-                        <ComboBoxItem Content="3"></ComboBoxItem>
+                        <ComboBoxItem Content="Admin"></ComboBoxItem>
+                        <ComboBoxItem Content="Staff"></ComboBoxItem>
+                        <ComboBoxItem Content="User"></ComboBoxItem>
 
                     </ComboBox>
                     <Label 

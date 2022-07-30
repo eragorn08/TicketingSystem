@@ -27,7 +27,7 @@ namespace Ticketing_System
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
         
-        public string password = "Mac&see19";
+        public string password = "Eragorn110800";
         
 
         //Encapsulation for the Values of Input

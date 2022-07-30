@@ -101,7 +101,8 @@
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="460" Height="263" 
-            TextChanged="tbSolution_TextChanged" FontSize="15"/>
+            TextChanged="tbSolution_TextChanged" FontSize="15"
+            AcceptsReturn="true"/>
 
         <Label 
             x:Name="lblStatus" 

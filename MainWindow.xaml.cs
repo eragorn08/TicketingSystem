@@ -28,13 +28,14 @@ namespace Ticketing_System
 
     public partial class MainWindow : Window
     {
+        string log_perm;
         private string Server;
         private string Database;
         private string Username;
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "Mac&see19";
+        public string password = "Eragorn110800";
 
         string name = Uname.name;
 
@@ -70,7 +71,7 @@ namespace Ticketing_System
             user loginuser = new user();
 
             int i = 0;
-            int log_perm = 0;
+            
             loginuser.Username = uname.Text;
             loginuser.UPassword = passw.Password;
             MySqlDataReader perm;
@@ -94,7 +95,7 @@ namespace Ticketing_System
 
             while (perm.Read())
             {
-                log_perm = perm.GetInt32("Permission");
+                log_perm = perm.GetString("Permission");
             }
 
             if (i == 0)
@@ -103,19 +104,19 @@ namespace Ticketing_System
             }
             else
             {
-                if(log_perm == 1)
+                if(log_perm == "Admin")
                 {
                     Window4 win4 = new Window4();
                     win4.Show();
                     this.Hide();
                 }
-                if(log_perm == 2)
+                if(log_perm == "Staff")
                 {
                     Window2 win2 = new Window2();
                     win2.Show();
                     this.Hide();
                 }
-                if(log_perm == 3)
+                if(log_perm == "User")
                 {
                     Window3 win3 = new Window3();
                     win3.Show();

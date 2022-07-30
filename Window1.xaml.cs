@@ -25,7 +25,7 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        public string password = "Mac&see19";
+        public string password = "Eragorn110800";
 
         string cpass;
         public Window1()
@@ -98,8 +98,7 @@ namespace Ticketing_System
                 if (registeruser.UPassword == cpass)
                 {
                     string datetime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO empuser(Name,Username,Password,Permission,AddedOn) Values(@name,@uname,@pass,3,@datetime);", conn);
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO empuser(Name,Username,Password,Permission,AddedOn) Values(@name,@uname,@pass,'User',@datetime);", conn);
                     cmd.Parameters.Add("@name", MySqlDbType.String).Value = registeruser.Name;
                     cmd.Parameters.Add("@uname", MySqlDbType.String).Value = registeruser.Username;
                     cmd.Parameters.Add("@pass", MySqlDbType.String).Value = registeruser.UPassword;
