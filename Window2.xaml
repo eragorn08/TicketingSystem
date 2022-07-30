@@ -91,6 +91,17 @@
                         VerticalAlignment="Top" 
                         Width="727" Height="141" FontSize="18" Grid.ColumnSpan="2"
                         AcceptsReturn="true"/>
+                    <Label Grid.Column="1" Content="Ticket ID:" HorizontalAlignment="Left" Margin="410,12,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtID"
+                        HorizontalAlignment="Left"
+                        IsReadOnly="False"
+                        Margin="506,12,0,0" 
+                        TextWrapping="Wrap" 
+                        Text="" 
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        VerticalAlignment="Top" 
+                        Width="106" Height="37" FontSize="18" Grid.Column="1"/>
 
                 </Grid>
             </TabItem>
@@ -107,41 +118,33 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Assign A Ticket" HorizontalAlignment="Left" Margin="3,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24" Grid.ColumnSpan="3" Grid.Column="2"/>
                     <Label Content="Assign a Ticket to you Users" HorizontalAlignment="Left" Margin="3,44,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2" FontSize="14"/>
-                    <Label Content="Pick a Ticket ID:" 
+                    <Label Content="Pick a Ticket:" 
                         HorizontalAlignment="Left" 
-                        Margin="6,78,0,0" 
+                        Margin="21,83,0,0" 
                         VerticalAlignment="Top" 
                         FontSize="20"
                         FontStyle="Italic" Grid.ColumnSpan="2" Grid.Column="2"/>
-                    <ComboBox x:Name="cmbTicketID" 
-                              HorizontalAlignment="Left" 
-                              Margin="45,78,0,0" 
-                              VerticalAlignment="Top" 
-                              Width="116" 
-                              Height="35"
-                              FontSize="20" 
-                              SelectionChanged="cmbTicketID_SelectionChanged" Grid.ColumnSpan="2" Grid.Column="3"/>
 
 
 
                     <Label x:Name="lblTicketTitle" Content="Ticket Title" 
                         HorizontalAlignment="Left" 
-                        Margin="288,14,0,0" 
+                        Margin="288,44,0,0" 
                         VerticalAlignment="Top" 
                         HorizontalContentAlignment="Center"
                         FontSize="20"
                         FontStyle="Italic" Width="308" Grid.Column="4"/>
-                    <TextBox x:Name="txtTicketProblem" IsReadOnly="True" HorizontalAlignment="Left" Margin="288,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360" TextChanged="txtTicketProblem_TextChanged" Grid.Column="4" FontSize="13"/>
+                    <TextBox x:Name="txtTicketProblem" IsReadOnly="True" HorizontalAlignment="Left" Margin="288,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Height="360" TextChanged="txtTicketProblem_TextChanged" Grid.Column="4" FontSize="13"/>
 
                     <Label Content="Assign to User:" 
                         HorizontalAlignment="Left" 
-                        Margin="6,141,0,0" 
+                        Margin="6,187,0,0" 
                         VerticalAlignment="Top" 
                         FontSize="20"
                         FontStyle="Italic" Grid.ColumnSpan="2" Grid.Column="2"/>
                     <ComboBox x:Name="cmbAssign" 
                               HorizontalAlignment="Left" 
-                              Margin="45,143,0,0" 
+                              Margin="45,189,0,0" 
                               VerticalAlignment="Top" 
                               FontSize="20"
                               Width="217" 
@@ -159,12 +162,28 @@
                         VerticalAlignment="Top" 
                         Height="50"
                         Width="108" FontSize="20" FontWeight="Bold" Click="btnCancelAssign_Click" Grid.Column="4"/>
-                    <Button x:Name="btShowTicketAssign" Content="Show" 
+                    <Button x:Name="btShowTicketAssign" Content="Show All Tickets" 
                         HorizontalAlignment="Left" 
-                        Margin="120,71,0,0" 
+                        Margin="22,13,0,0" 
                         VerticalAlignment="Top" 
                         Height="50"
-                        Width="108" FontSize="20" FontWeight="Bold" Click="btShowTicketAssign_Click" Grid.Column="4"/>
+                        Width="249" FontSize="15" FontWeight="Bold" Click="btShowTicketAssign_Click" Grid.Column="4"/>
+                    <Label Content="Ticket ID:" 
+                        HorizontalAlignment="Left" 
+                        Margin="53,134,0,0" 
+                        VerticalAlignment="Top" 
+                        FontSize="20"
+                        FontStyle="Italic" Grid.ColumnSpan="2" Grid.Column="2"/>
+                    <TextBox x:Name="txtTicketID_assign" 
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+                             IsReadOnly="True" HorizontalAlignment="Left" Margin="45,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" Height="32" TextChanged="txtTicketProblem_TextChanged" Grid.Column="3" FontSize="20" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                    <Button x:Name="btShowContent" Content="Show Ticket Content" 
+                        HorizontalAlignment="Left" 
+                        Margin="45,75,0,0" 
+                        VerticalAlignment="Top" 
+                        Height="50"
+                        Width="109" FontSize="10" FontWeight="Bold" Click="btShowContent_Click" Grid.Column="3" Grid.ColumnSpan="2"/>
 
 
                 </Grid>
@@ -175,9 +194,9 @@
                       Margin="0,11,0,99">
                     <Label Content="Solve a Ticket" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="242" Height="46" FontWeight="Bold" FontSize="24"/>
                     <Label Content="Solve the Ticket assigned to you." HorizontalAlignment="Left" Margin="30,44,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <Label Content="Pick a Ticket ID:" 
+                    <Label Content="Pick a Ticket Title:" 
                         HorizontalAlignment="Left" 
-                        Margin="422,28,0,0" 
+                        Margin="404,28,0,0" 
                         VerticalAlignment="Top" 
                         FontSize="20"
                         FontStyle="Italic"/>

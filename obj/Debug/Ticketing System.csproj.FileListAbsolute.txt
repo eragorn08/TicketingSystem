@@ -438,3 +438,5 @@ C:\Users\pc\Desktop\C# Project\Ticket System Final\TicketingSystem\obj\Debug\Tic
 C:\Users\pc\Desktop\C# Project\Ticket System Final\TicketingSystem\obj\Debug\Ticketing System.csproj.CopyComplete
 C:\Users\pc\Desktop\C# Project\Ticket System Final\TicketingSystem\obj\Debug\Ticketing System.exe
 C:\Users\pc\Desktop\C# Project\Ticket System Final\TicketingSystem\obj\Debug\Ticketing System.pdb
+C:\Users\pc\Desktop\C# Project\Ticket System Final\TicketingSystem\obj\Debug\DataGrid_Assign.g.cs
+C:\Users\pc\Desktop\C# Project\Ticket System Final\TicketingSystem\obj\Debug\DataGrid_Assign.baml

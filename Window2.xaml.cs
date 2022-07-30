@@ -15,10 +15,10 @@ using System.Windows.Shapes;
 
 namespace Ticketing_System
 {
+
     
     public partial class Window2 : Window
     {
-
         //Encapsulation For the Connection to the Database
         private string Server;
         private string Database;
@@ -26,8 +26,8 @@ namespace Ticketing_System
         public string server { get { return Server; } set { Server = value; } }
         public string database { get { return Database; } set { Database = value; } }
         public string username { get { return Username; } set { Username = value; } }
-        
-        public string password = "Eragorn110800";
+
+        public string password = "root";
         
 
         //Encapsulation for the Values of Input
@@ -56,6 +56,12 @@ namespace Ticketing_System
         public string prob_solve { get { return Prob_solve; } set { Prob_solve = value; } }
         public string showprob { get { return Showprob; } set { Showprob = value; } }
 
+        //Declare for Ticket IDs
+        //cmbTicketIDSolve
+        public string tid;
+        //btnConfirmSolve (for logs)
+        public string ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, statdb;
+
         public Window2()
         {
             InitializeComponent();
@@ -65,25 +71,29 @@ namespace Ticketing_System
             database = "ticketingsystemdb";
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
-            MySqlConnection conn = new MySqlConnection(constring);
             
 
-            //ASSIGN TO TICKET ID
-            //Selecting column from table
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff", conn);
-            conn.Open();
-            MySqlDataReader read_id = cmd.ExecuteReader();
+            //GENERATE TICKET - TICKET ID SHOW
+            MySqlConnection connt = new MySqlConnection(constring);
+            MySqlCommand cmdt = new MySqlCommand("Select * from tb_mainstaff order by ticket_id desc limit 1", connt);
+            connt.Open();
+            MySqlDataReader read_t = cmdt.ExecuteReader();
             //Assign to Ticket ID
-            while (read_id.Read())
+            while (read_t.Read())
             {
-                String TicketIDVal = read_id.GetString("ticket_id");
-                cmbTicketID.Items.Add(TicketIDVal);
+                string ticketstr = read_t.GetString("ticket_id");
+                int nf_ticketint = (int)Int64.Parse(ticketstr);
+                int nf2_ticketint = nf_ticketint + 1;
+                string st_ticketint = nf2_ticketint.ToString();
+                txtID.Text = st_ticketint;
             }
-            conn.Close();
+            connt.Close();
+
+
 
             //ASSIGN TO STAFF MEMBERS
             MySqlConnection conn2 = new MySqlConnection(constring);
-            MySqlCommand stf = new MySqlCommand("Select Username from empuser", conn2);
+            MySqlCommand stf = new MySqlCommand("Select Username from empuser Where Permission!='Admin'", conn2);
             conn2.Open();
             MySqlDataReader read_assign = stf.ExecuteReader();
             //Assign to Staff Members
@@ -96,14 +106,14 @@ namespace Ticketing_System
             //ASSIGN TO TICKET ID AGAIN
             string uname1 = Uname.name;
             MySqlConnection conn3 = new MySqlConnection(constring);
-            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1", conn3);
+            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1 AND stat='Pending'", conn3);
             cmd2.Parameters.Add("@uname1", MySqlDbType.String).Value = uname1;
             conn3.Open();
             MySqlDataReader read_id2 = cmd2.ExecuteReader();
             //Assign to Solve Ticket ID
             while(read_id2.Read())
             {
-                cmbTicketIDSolve.Items.Add(read_id2.GetString("ticket_id"));
+                cmbTicketIDSolve.Items.Add(read_id2.GetString("prob_title"));
             }
             conn3.Close();
 
@@ -122,7 +132,13 @@ namespace Ticketing_System
             database = "ticketingsystemdb";
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+
+            
+
+
             MySqlConnection conn = new MySqlConnection(constring);
+
+
 
             //Add Column to Table
 
@@ -163,21 +179,22 @@ namespace Ticketing_System
                 MySqlDataReader read_gen = cmd.ExecuteReader();
                 conn.Close();
 
-                //ASSIGN TO TICKET ID
-                //remove muna nung luma syempre
-                cmbTicketID.Items.Clear();
-                //Selecting column from table
-                MySqlConnection conn2 = new MySqlConnection(constring);
-                MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff", conn2);
-                conn2.Open();
-                MySqlDataReader read_id = cmd2.ExecuteReader();
+                //GENERATE TICKET - TICKET ID SHOW
+                txtID.Clear();
+                MySqlConnection connt = new MySqlConnection(constring);
+                MySqlCommand cmdt = new MySqlCommand("Select * from tb_mainstaff order by ticket_id desc limit 1", connt);
+                connt.Open();
+                MySqlDataReader read_t = cmdt.ExecuteReader();
                 //Assign to Ticket ID
-                while (read_id.Read())
+                while (read_t.Read())
                 {
-                    String TicketIDVal = read_id.GetString("ticket_id");
-                    cmbTicketID.Items.Add(TicketIDVal);
+                    string ticketstr = read_t.GetString("ticket_id");
+                    int nf_ticketint = (int)Int64.Parse(ticketstr);
+                    int nf2_ticketint = nf_ticketint + 1;
+                    string st_ticketint = nf2_ticketint.ToString();
+                    txtID.Text = st_ticketint;
                 }
-                conn2.Close();
+                connt.Close();
 
                 txtName.Text = "";
                 txtEmail.Text = "";
@@ -190,7 +207,13 @@ namespace Ticketing_System
         //Show Ticket
         private void btShowTicketAssign_Click(object sender, RoutedEventArgs e)
         {
-            string selection = this.cmbTicketID.Text;
+            DataGrid_Assign winassg = new DataGrid_Assign();
+            winassg.Show();
+            
+        }
+        private void btShowContent_Click(object sender, RoutedEventArgs e)
+        {
+            string selection = AssignString.assign_id;
 
             //SQL CONNECTION
             server = "localhost";
@@ -202,22 +225,24 @@ namespace Ticketing_System
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             conn.Open();
             MySqlDataReader read_show = cmd.ExecuteReader();
-           
+
             //Dito nya kukunin ung mga laman nung stuff :)
-            while(read_show.Read())
+            while (read_show.Read())
             {
                 titledb = read_show.GetString("prob_title");
                 emaildb = read_show.GetString("cust_email");
                 namedb = read_show.GetString("cust_name");
                 cus_problemdb = read_show.GetString("problem");
+                statdb = read_show.GetString("stat");
             }
 
             //Full Problem Stuff
-            showprob = "Email: " + emaildb + "\n\nName of Customer: " + namedb + "\n\nProblem:\n" + cus_problemdb;
+            showprob = "Email: " + emaildb + "\n\nName of Customer: " + namedb + "\n\nProblem:\n" + cus_problemdb + "\n\nStatus: " + statdb;
 
-                //mashoshow sa window ung problem stuff
-                txtTicketProblem.Text = showprob;
-                lblTicketTitle.Content = titledb;
+            //mashoshow sa window ung problem stuff
+            txtTicketID_assign.Text = selection;
+            txtTicketProblem.Text = showprob;
+            lblTicketTitle.Content = titledb;
             conn.Close();
         }
 
@@ -240,8 +265,10 @@ namespace Ticketing_System
         //Assign Ticket
         private void btnAssign_Click(object sender, RoutedEventArgs e)
         {
+
+
             //To Assign
-            string selection = this.cmbTicketID.Text;
+            string selection = AssignString.assign_id;
             assignment = cmbAssign.Text;
             MessageBoxResult msgAssignment = MessageBox.Show("The Ticket " +title+" Has been assigned to User "+assignment, "Assigned");
 
@@ -251,7 +278,7 @@ namespace Ticketing_System
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set ass_user=@assignment Where tb_mainstaff.ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set ass_user=@assignment, stat='Pending' Where tb_mainstaff.ticket_id=@selection", conn);
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             cmd.Parameters.Add("@assignment", MySqlDbType.String).Value = assignment;
             conn.Open();
@@ -263,33 +290,30 @@ namespace Ticketing_System
             cmbTicketIDSolve.Items.Clear();
             string uname1 = Uname.name;
             MySqlConnection conn3 = new MySqlConnection(constring);
-            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1", conn3);
+            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1 AND stat='Pending'", conn3);
             cmd2.Parameters.Add("@uname1", MySqlDbType.String).Value = uname1;
             conn3.Open();
             MySqlDataReader read_id2 = cmd2.ExecuteReader();
             //Assign to Solve Ticket ID
             while (read_id2.Read())
             {
-                cmbTicketIDSolve.Items.Add(read_id2.GetString("ticket_id"));
+                cmbTicketIDSolve.Items.Add(read_id2.GetString("prob_title"));
             }
             conn3.Close();
 
 
             //Para maclear ung laman
-            cmbTicketID.Text = "";
+            //cmbTicketID.Text = "";
+            txtTicketID_assign.Text = "";
             cmbAssign.Text = "";
             lblTicketTitle.Content = "Ticket Title";
             txtTicketProblem.Clear();
-            
-
-            
-
 
         }
         private void btnCancelAssign_Click(object sender, RoutedEventArgs e)
         {
             //Para maclear ung laman
-            cmbTicketID.Text = "";
+            //cmbTicketID.Text = "";
             cmbAssign.Text = "";
             lblTicketTitle.Content = "Ticket Title";
             txtTicketProblem.Clear();
@@ -299,7 +323,7 @@ namespace Ticketing_System
         //Show para sa Solve Ticket
         private void btnShowSolve_Click(object sender, RoutedEventArgs e)
         {
-            string selection = this.cmbTicketIDSolve.Text;
+            string selection = cmbTicketIDSolve.Text;
 
             //SQL CONNECTION
             server = "localhost";
@@ -307,7 +331,7 @@ namespace Ticketing_System
             username = "root";
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
-            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Select * from tb_mainstaff Where prob_title=@selection", conn);
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             conn.Open();
             MySqlDataReader read_show = cmd.ExecuteReader();
@@ -315,6 +339,7 @@ namespace Ticketing_System
             //Dito nya kukunin ung mga laman nung stuff :)
             while (read_show.Read())
             {
+
                 titledb = read_show.GetString("prob_title");
                 emaildb = read_show.GetString("cust_email");
                 namedb = read_show.GetString("cust_name");
@@ -332,6 +357,8 @@ namespace Ticketing_System
 
             conn.Close();
         }
+
+        
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Confirm The Solve Problem
@@ -351,7 +378,7 @@ namespace Ticketing_System
             string constring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
             MySqlConnection conn = new MySqlConnection(constring);
 
-            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@prob_solve,solu_by=@unames,stat=@status,solved_on=@solvetime Where tb_mainstaff.ticket_id=@selection", conn);
+            MySqlCommand cmd = new MySqlCommand("Update tb_mainstaff Set solution=@prob_solve,solu_by=@unames,stat=@status,solved_on=@solvetime Where tb_mainstaff.prob_title=@selection", conn);
             cmd.Parameters.Add("@prob_solve", MySqlDbType.String).Value = prob_solve;
             cmd.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
             cmd.Parameters.Add("@status", MySqlDbType.String).Value = status;
@@ -360,11 +387,89 @@ namespace Ticketing_System
             conn.Open();
             MySqlDataReader read_show = cmd.ExecuteReader();
 
+            //Log Instance
+            if (cmbStatusChange.Text == "Pending")
+            {
+                string pending = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+
+
+                //Get the Data
+                MySqlConnection conn0 = new MySqlConnection(constring);
+                MySqlCommand cmd0 = new MySqlCommand("Select * From tb_mainstaff WHERE tb_mainstaff.prob_title=@selection", conn0);
+                cmd0.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
+                conn0.Open();
+                MySqlDataReader read_log0 = cmd0.ExecuteReader();
+                while (read_log0.Read())
+                {
+
+                    ticket_id = read_log0.GetString("ticket_id");
+                    cust_name = read_log0.GetString("cust_name");
+                    cust_email = read_log0.GetString("cust_email");
+                    prob_title = read_log0.GetString("prob_title");
+                    problem = read_log0.GetString("problem");
+                    ass_user = read_log0.GetString("ass_user");
+                    solution = read_log0.GetString("solution");
+
+                }
+
+
+                //Add the Logs
+                MySqlConnection conn1 = new MySqlConnection(constring);
+                MySqlCommand cmd1 = new MySqlCommand("Insert into tb_logs (ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, pending_on) Values (@ticket_id, @cust_name, @cust_email, @prob_title, @problem, @ass_user, @solution, @pending)", conn1);
+                cmd1.Parameters.Add("@ticket_id", MySqlDbType.String).Value = ticket_id;
+                cmd1.Parameters.Add("@cust_name", MySqlDbType.String).Value = cust_name;
+                cmd1.Parameters.Add("@cust_email", MySqlDbType.String).Value = cust_email;
+                cmd1.Parameters.Add("@prob_title", MySqlDbType.String).Value = prob_title;
+                cmd1.Parameters.Add("@problem", MySqlDbType.String).Value = problem;
+                cmd1.Parameters.Add("@ass_user", MySqlDbType.String).Value = ass_user;
+                cmd1.Parameters.Add("@solution", MySqlDbType.String).Value = solution;
+                cmd1.Parameters.Add("@pending", MySqlDbType.String).Value = pending;
+                conn1.Open();
+                MySqlDataReader read_log1 = cmd1.ExecuteReader();
+            }
+
+            else if (cmbStatusChange.Text == "Pending")
+            {
+                string solved = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
+
+
+                //Get the Data
+                MySqlConnection conn0 = new MySqlConnection(constring);
+                MySqlCommand cmd0 = new MySqlCommand("Select * From tb_mainstaff WHERE tb_mainstaff.prob_title=@selection", conn0);
+                cmd0.Parameters.Add("@selection", MySqlDbType.String).Value = selection;
+                conn0.Open();
+                MySqlDataReader read_log0 = cmd0.ExecuteReader();
+                while (read_log0.Read())
+                {
+
+                    ticket_id = read_log0.GetString("ticket_id");
+                    cust_name = read_log0.GetString("cust_name");
+                    cust_email = read_log0.GetString("cust_email");
+                    prob_title = read_log0.GetString("prob_title");
+                    problem = read_log0.GetString("problem");
+                    ass_user = read_log0.GetString("ass_user");
+                    solution = read_log0.GetString("solution");
+
+                }
+
+
+                //Add the Logs
+                MySqlConnection conn1 = new MySqlConnection(constring);
+                MySqlCommand cmd1 = new MySqlCommand("Insert into tb_logs (ticket_id, cust_name, cust_email, prob_title, problem, ass_user, solution, solved_on) Values (@ticket_id, @cust_name, @cust_email, @prob_title, @problem, @ass_user, @solution, @solved)", conn1);
+                cmd1.Parameters.Add("@ticket_id", MySqlDbType.String).Value = ticket_id;
+                cmd1.Parameters.Add("@cust_name", MySqlDbType.String).Value = cust_name;
+                cmd1.Parameters.Add("@cust_email", MySqlDbType.String).Value = cust_email;
+                cmd1.Parameters.Add("@prob_title", MySqlDbType.String).Value = prob_title;
+                cmd1.Parameters.Add("@problem", MySqlDbType.String).Value = problem;
+                cmd1.Parameters.Add("@ass_user", MySqlDbType.String).Value = ass_user;
+                cmd1.Parameters.Add("@solution", MySqlDbType.String).Value = solution;
+                cmd1.Parameters.Add("@solved", MySqlDbType.String).Value = solved;
+                conn1.Open();
+                MySqlDataReader read_log1 = cmd1.ExecuteReader();
+            }
 
 
 
-            //add to logs na database to
-            Console.WriteLine("The Problem of:\n " + showprob + "\n\nis solved by this Solution:\n" + prob_solve + "\n\nWith Status: " + status + "\n\nBy user: " + assignment);
 
             //Messagebox para maconfirm
             MessageBoxResult mesSolved = MessageBox.Show("The Status of the Probem has been changed to "+status,"Status");
@@ -376,6 +481,22 @@ namespace Ticketing_System
             txtTicketSolution.Clear();
             cmbStatusChange.Text = "";
             conn.Close();
+
+            //Refresh Combobox
+            //ASSIGN TO TICKET ID AGAIN
+            cmbTicketIDSolve.Items.Clear();
+            string uname1 = Uname.name;
+            MySqlConnection conn3 = new MySqlConnection(constring);
+            MySqlCommand cmd2 = new MySqlCommand("Select * from tb_mainstaff Where ass_user=@uname1 AND stat='Pending'", conn3);
+            cmd2.Parameters.Add("@uname1", MySqlDbType.String).Value = uname1;
+            conn3.Open();
+            MySqlDataReader read_id2 = cmd2.ExecuteReader();
+            //Assign to Solve Ticket ID
+            while (read_id2.Read())
+            {
+                cmbTicketIDSolve.Items.Add(read_id2.GetString("prob_title"));
+            }
+            conn3.Close();
         }
         private void btnCancelSolve_Click(object sender, RoutedEventArgs e)
         {
@@ -407,5 +528,6 @@ namespace Ticketing_System
             this.Hide();
         }
 
+        
     }
 }
